@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Horizon - Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-sans antialiased bg-gray-100">
+
+    <header class="bg-white shadow-md py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="images/logo.png" alt="Event Horizon Logo" class="h-12 w-12 mr-3">
+                <h1 class="text-3xl font-bold text-gray-800">Event Horizon</h1>
+            </div>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="text-gray-600 hover:text-blue-600 font-semibold text-lg">Home</a></li>
+                    <li><a href="events.html" class="text-gray-600 hover:text-blue-600 font-semibold text-lg">Events</a></li>
+                    <li><a href="about.html" class="text-gray-600 hover:text-blue-600 font-semibold text-lg">About Us</a></li>
+                    <li><a href="registration.html" class="text-gray-600 hover:text-blue-600 font-semibold text-lg">Register</a></li>
+                    <li><a href="gallery.html" class="text-blue-600 hover:text-blue-800 font-semibold text-lg">Gallery</a></li>
+                    <li><a href="sponsors.html" class="text-gray-600 hover:text-blue-600 font-semibold text-lg">Sponsors</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 my-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">Our Event Gallery</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer">
+                <img src="images/gallery-thumb-1.jpg" data-src="images/gallery-thumb-1.jpg" alt="Gallery Image 1" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold">Tech Summit Keynote</p>
+                </div>
+            </div>
+
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer">
+                <img src="images/gallery-thumb-2.jpg" data-src="images/gallery-thumb-2.jpg" alt="Gallery Image 2" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold">Music Fest Crowd</p>
+                </div>
+            </div>
+
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer">
+                <img src="images/gallery-thumb-3.jpg" data-src="images/gallery-full-3.jpg" alt="Gallery Image 3" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold">Art Gala Exhibit</p>
+                </div>
+            </div>
+
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer">
+                <img src="images/gallery-thumb-4.jpg" data-src="images/gallery-full-4.jpg" alt="Gallery Image 4" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold">Networking Session</p>
+                </div>
+            </div>
+
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer">
+                <img src="images/gallery-thumb-5.jpg" data-src="images/gallery-full-5.jpg" alt="Gallery Image 5" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold">Workshop in Progress</p>
+                </div>
+            </div>
+
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer">
+                <img src="images/gallery-thumb-6.jpg" data-src="images/gallery-full-6.jpg" alt="Gallery Image 6" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold">Opening Ceremony</p>
+                </div>
+            </div>
+            </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Event Horizon. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="lightbox-modal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
+        <div class="relative bg-white p-4 rounded-lg shadow-lg max-w-3xl max-h-full overflow-auto">
+            <button class="absolute top-2 right-2 text-gray-800 text-4xl font-bold leading-none hover:text-gray-600 focus:outline-none" id="close-lightbox">&times;</button>
+            <img src="" alt="Lightbox Image" id="lightbox-img" class="max-w-full max-h-full object-contain">
+            <div id="lightbox-caption" class="text-center text-gray-700 mt-2"></div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/form-validation.js"></script>
+</body>
+</html>

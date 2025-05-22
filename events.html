@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Horizon - Events</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-sans antialiased bg-gray-100">
+
+<header class="bg-white shadow-md py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="images/logo.png" alt="Event Horizon Logo" class="h-12 w-12 mr-3">
+                <h1 class="text-3xl font-bold text-gray-800">Event Horizon</h1>
+            </div>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="text-gray-600 hover:text-blue-600 font-semibold text-lg">Home</a></li>
+                    <li><a href="events.html" class="text-gray-600 hover:text-blue-600 font-semibold text-lg">Events</a></li>
+                    <li><a href="about.html" class="text-gray-600 hover:text-blue-600 font-semibold text-lg">About Us</a></li>
+                    <li><a href="registration.html" class="text-gray-600 hover:text-blue-600 font-semibold text-lg">Register</a></li>
+                    <li><a href="gallery.html" class="text-gray-600 hover:text-blue-600 font-semibold text-lg">Gallery</a></li>
+                    <li><a href="sponsors.html" class="text-gray-600 hover:text-blue-600 font-semibold text-lg">Sponsors</a></li> </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 my-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">Our Upcoming Events</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="images/event-techsummit.jpg" alt="Tech Summit" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Global Tech Summit 2025</h3>
+                    <p class="text-gray-600 mb-4">Join industry leaders and innovators for a deep dive into the future of technology.</p>
+                    <div class="flex justify-between items-center text-sm text-gray-500">
+                        <span><strong class="text-gray-700">Date:</strong> October 26-28, 2025</span>
+                        <span><strong class="text-gray-700">Location:</strong> Convention Center, City A</span>
+                    </div>
+                    <a href="registration.html" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">Register Now</a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="images/event-musicfest.jpg" alt="Music Fest" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Summer Music Fest 2025</h3>
+                    <p class="text-gray-600 mb-4">Experience a weekend of live music, food, and fun with top artists from around the globe.</p>
+                    <div class="flex justify-between items-center text-sm text-gray-500">
+                        <span><strong class="text-gray-700">Date:</strong> August 12-14, 2025</span>
+                        <span><strong class="text-gray-700">Location:</strong> Lakeside Park, City B</span>
+                    </div>
+                    <a href="registration.html" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">Get Tickets</a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="images/event-artgala.jpg" alt="Art Gala" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Annual Art & Design Gala</h3>
+                    <p class="text-gray-600 mb-4">Celebrate creativity and innovation at our prestigious annual art and design exhibition.</p>
+                    <div class="flex justify-between items-center text-sm text-gray-500">
+                        <span><strong class="text-gray-700">Date:</strong> November 5, 2025</span>
+                        <span><strong class="text-gray-700">Location:</strong> Grand Gallery, City C</span>
+                    </div>
+                    <a href="registration.html" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">RSVP Now</a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="images/event-webinar.jpg" alt="Webinar" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Future of AI Webinar Series</h3>
+                    <p class="text-gray-600 mb-4">An online series exploring the latest advancements and ethical considerations in Artificial Intelligence.</p>
+                    <div class="flex justify-between items-center text-sm text-gray-500">
+                        <span><strong class="text-gray-700">Date:</strong> September 1-15, 2025</span>
+                        <span><strong class="text-gray-700">Location:</strong> Online</span>
+                    </div>
+                    <a href="registration.html" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">Join Webinar</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Event Horizon. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

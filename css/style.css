@@ -1,0 +1,93 @@
+/* Custom CSS for your project */
+
+/* Slider specific styles */
+.slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%; /* Ensure wrapper takes full height of container */
+}
+
+.slider-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    flex-shrink: 0; /* Prevents images from shrinking */
+}
+
+/* Optional: Add some custom styling for navigation buttons if needed, though Tailwind covers most */
+.slider-prev,
+.slider-next {
+    /* Tailwind classes handle most styling, but you can add more here */
+    z-index: 10; /* Ensure buttons are above images */
+}
+
+/* News Slider specific styles (for upward scroll) */
+.news-slider {
+    position: relative;
+    height: 200px; /* Adjust as needed */
+    overflow: hidden;
+}
+
+.news-list {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    animation: news-scroll 20s linear infinite; /* Adjust animation duration as needed */
+}
+
+.news-item {
+    padding: 10px 0;
+}
+
+@keyframes news-scroll {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(-100%); /* Adjust to scroll up completely */
+    }
+}
+/* Lightbox Modal Styles */
+#lightbox-modal {
+    transition: opacity 0.3s ease-in-out;
+}
+
+#lightbox-modal.hidden {
+    opacity: 0;
+    pointer-events: none; /* Allows clicks to pass through when hidden */
+}
+
+#lightbox-modal > div {
+    max-width: 90%; /* Max width of the content box */
+    max-height: 90vh; /* Max height based on viewport height */
+}
+
+#lightbox-img {
+    max-width: 100%;
+    max-height: calc(90vh - 80px); /* Adjust height to leave space for close button and caption */
+}
+
+/* Optional: Add a subtle animation for the image when opening/closing */
+#lightbox-modal.hidden #lightbox-img {
+    transform: scale(0.9);
+    transition: transform 0.3s ease-in-out;
+}
+#lightbox-modal:not(.hidden) #lightbox-img {
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* To pause the animation on hover */
+.news-list:hover {
+    animation-play-state: paused;
+}
