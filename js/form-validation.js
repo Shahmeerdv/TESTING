@@ -118,10 +118,19 @@ $(document).ready(function() {
         }
 
         // Contact Person Validation
-        const $contactPerson = $('#contactPerson');
-        if (!validateField($contactPerson, $('#contactPersonError'), 'Contact Person Name is required.')) {
-            isValid = false;
-        }
+    const $contactPerson = $('#contactPerson');
+    const contactPersonVal = $contactPerson.val().trim();
+
+    if (contactPersonVal === '') {
+        $('#contactPersonError').text('Contact Person Name is required.').removeClass('hidden');
+        $contactPerson.addClass('border-red-500');
+        isValid = false;
+    } else if (!/^[a-zA-Z\s]+$/.test(contactPersonVal)) {
+        $('#contactPersonError').text('Only alphabets and spaces are allowed.').removeClass('hidden');
+        $contactPerson.addClass('border-red-500');
+        isValid = false;
+    }
+
 
         // Contact Email Validation
         const $contactEmail = $('#contactEmail');
