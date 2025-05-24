@@ -40,7 +40,7 @@
                     <label for="companyName" class="block text-gray-700 text-sm font-bold mb-2">Company Name:</label>
                     <input type="text" id="companyName" name="companyName"
                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                           placeholder="Your Company Inc." required>
+                           placeholder="Your Company Inc.">
                     <p class="text-red-500 text-xs italic mt-1 hidden" id="companyNameError"></p>
                 </div>
 
@@ -48,7 +48,7 @@
                     <label for="contactPerson" class="block text-gray-700 text-sm font-bold mb-2">Contact Person Name:</label>
                     <input type="text" id="contactPerson" name="contactPerson"
                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                           placeholder="John Smith" required>
+                           placeholder="John Smith">
                     <p class="text-red-500 text-xs italic mt-1 hidden" id="contactPersonError"></p>
                 </div>
 
@@ -56,29 +56,41 @@
                     <label for="contactEmail" class="block text-gray-700 text-sm font-bold mb-2">Contact Email:</label>
                     <input type="email" id="contactEmail" name="contactEmail"
                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                           placeholder="info@yourcompany.com" inputmode="email" required>
+                           placeholder="info@yourcompany.com" inputmode="email">
                     <p class="text-red-500 text-xs italic mt-1 hidden" id="contactEmailError"></p>
                 </div>
 
-                <div>
+               <div>
                     <label for="contactPhone" class="block text-gray-700 text-sm font-bold mb-2">Contact Phone Number:</label>
                     <input type="text" id="contactPhone" name="contactPhone"
-                           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                           placeholder="+1234567890" pattern="^\+\d{10,15}$" required>
-                    <p class="text-red-500 text-xs italic mt-1 hidden" id="contactPhoneError">Phone number must start with '+' and be 10-15 digits.</p>
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        placeholder="+1234567890">
+                    <p class="text-red-500 text-xs italic mt-1 hidden" id="contactPhoneError">Phone number must start with '+' and contain 10 to 15 digits.</p>
                 </div>
 
+
+
                 <div>
-                    <label for="sponsorshipCategory" class="block text-gray-700 text-sm font-bold mb-2">Desired Sponsorship Category:</label>
-                    <select id="sponsorshipCategory" name="sponsorshipCategory"
-                            class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" required>
-                        <option value="">-- Please Select --</option>
-                        <option value="silver">Silver Sponsorship</option>
-                        <option value="gold">Gold Sponsorship</option>
-                        <option value="platinum">Platinum Sponsorship</option>
-                    </select>
-                    <p class="text-red-500 text-xs italic mt-1 hidden" id="sponsorshipCategoryError"></p>
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Desired Sponsorship Category:</label>
+                    
+                    <div class="flex flex-col space-y-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="sponsorshipCategory" value="silver" class="form-radio text-blue-600">
+                            <span class="ml-2 text-gray-700">Silver Sponsorship (PKR 150,000)</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="sponsorshipCategory" value="gold" class="form-radio text-blue-600">
+                            <span class="ml-2 text-gray-700">Gold Sponsorship (PKR 300,000)</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="sponsorshipCategory" value="platinum" class="form-radio text-blue-600">
+                            <span class="ml-2 text-gray-700">Platinum Sponsorship (PKR 500,000)</span>
+                        </label>
+                    </div>
+
+                    <p class="text-red-500 text-xs italic mt-1 hidden" id="sponsorshipCategoryError">Please select a sponsorship category.</p>
                 </div>
+
 
                 <div>
                     <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Your Message / Requirements:</label>
