@@ -117,35 +117,60 @@ $(document).ready(function() {
             isValid = false;
         }
 
-        // Contact Person Validation
+            // Contact Person Validation
         const $contactPerson = $('#contactPerson');
-        if (!validateField($contactPerson, $('#contactPersonError'), 'Contact Person Name is required.')) {
+        const contactPersonVal = $contactPerson.val().trim();
+
+        if (contactPersonVal === '') {
+            $('#contactPersonError').text('Contact Person Name is required.').removeClass('hidden');
+            $contactPerson.addClass('border-red-500');
+            isValid = false;
+        } else if (!/^[a-zA-Z\s]+$/.test(contactPersonVal)) {
+            $('#contactPersonError').text('Only alphabets and spaces are allowed.').removeClass('hidden');
+            $contactPerson.addClass('border-red-500');
             isValid = false;
         }
 
-        // Contact Email Validation
+
         const $contactEmail = $('#contactEmail');
-        if ($contactEmail.val().trim() === '') {
+        const emailVal = $contactEmail.val().trim();
+
+        if (emailVal === '') {
             $('#contactEmailError').text('Contact Email is required.').removeClass('hidden');
             $contactEmail.addClass('border-red-500');
             isValid = false;
-        } else if (!/^\S+@\S+\.\S+$/.test($contactEmail.val())) { // Basic email regex
+        } else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(emailVal)) {
             $('#contactEmailError').text('Please enter a valid email address.').removeClass('hidden');
             $contactEmail.addClass('border-red-500');
             isValid = false;
         }
 
-        // Contact Phone Validation (using pattern attribute)
+
+            // Contact Phone Validation (using pattern attribute)
         const $contactPhone = $('#contactPhone');
-        if (!validateFieldWithPattern($contactPhone, $('#contactPhoneError'), 'Contact Phone Number is required.')) {
+        const phoneVal = $contactPhone.val().trim();
+
+            // Custom validation logic
+        if (phoneVal === '') {
+            $('#contactPhoneError').text('Contact Phone Number is required.').removeClass('hidden');
+            $contactPhone.addClass('border-red-500');
+            isValid = false;
+        } else if (!/^\+\d{10,15}$/.test(phoneVal)) {
+            $('#contactPhoneError').text("Phone number must start with '+' and contain 10 to 15 digits.").removeClass('hidden');
+            $contactPhone.addClass('border-red-500');
             isValid = false;
         }
 
-        // Sponsorship Category Validation
-        const $sponsorshipCategory = $('#sponsorshipCategory');
-        if (!validateField($sponsorshipCategory, $('#sponsorshipCategoryError'), 'Please select a sponsorship category.')) {
+
+        // Sponsorship Category Validation for radio buttons
+        const $sponsorshipCategory = $('input[name="sponsorshipCategory"]:checked');
+        if ($sponsorshipCategory.length === 0) {
+            $('#sponsorshipCategoryError').text('Please select a sponsorship category.').removeClass('hidden');
             isValid = false;
+        } else {
+            $('#sponsorshipCategoryError').addClass('hidden');
         }
+
 
 
         if (isValid) {
@@ -153,6 +178,8 @@ $(document).ready(function() {
             $('#sponsorFormSuccess').removeClass('hidden');
             $('#sponsorFormError').addClass('hidden');
             console.log('Sponsor Form submitted successfully!', $(this).serializeArray());
+            document.getElementById('sponsorForm').reset();
+
             // In a real application, you'd send this data to your Node.js backend
             // this.reset(); // Uncomment to reset form after successful submission
         } else {
