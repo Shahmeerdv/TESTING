@@ -5,70 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Horizon - Gallery</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-</head>
-<body class="font-sans antialiased bg-gray-100">
+    <style>
+        /* Apply Inter font globally for consistency */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom styles for lightbox navigation buttons */
+        .lightbox-nav-btn {
+            background-color: rgba(0, 0, 0, 0.4); /* Darker, more visible transparency */
+            backdrop-filter: blur(3px); /* Optional: Frosted glass effect */
+            border-radius: 9999px; /* Fully rounded */
+            padding: 0.75rem; /* p-3 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white; /* Icon color */
+            font-size: 2rem; /* Larger icon */
+            opacity: 0.8;
+            transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
+        }
+        .lightbox-nav-btn:hover {
+            opacity: 1;
+            background-color: rgba(0, 0, 0, 0.6); /* Even darker on hover */
+        }
+        /* Ensure the lightbox content itself is relative for button positioning */
+        #lightbox-modal > div {
+            position: relative; /* This is crucial for absolute positioning of nav buttons and close button */
+        }
 
-    <header class="bg-white shadow-md py-4">
-        <div class="container mx-auto px-4 flex justify-between items-center">
+        /* Custom styles for the close button */
+        .lightbox-close-btn {
+            background-color: rgba(0, 0, 0, 0.4); /* Consistent with nav buttons */
+            border-radius: 9999px; /* Fully rounded */
+            padding: 0.5rem 0.8rem; /* Adjusted padding for an 'x' */
+            color: white;
+            font-size: 2rem; /* Matches existing size */
+            font-weight: bold;
+            line-height: 1; /* Prevents extra line height causing mis-alignment */
+            text-shadow: 0 0 5px rgba(0,0,0,0.5); /* Subtle shadow for visibility */
+            opacity: 0.8;
+            transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .lightbox-close-btn:hover {
+            opacity: 1;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+    </style>
+</head>
+<body class="font-inter antialiased bg-gray-50 text-gray-800">
+
+    <header class="bg-white shadow-lg py-4 sticky top-0 z-40">
+        <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="images/logo.png" alt="Event Horizon Logo" class="h-12 w-12 mr-3">
-                <h1 class="text-3xl font-bold text-gray-800">Event Horizon</h1>
+                <img src="images/logo.png" alt="Event Horizon Logo" class="h-14 w-14 mr-3">
+                <h1 class="text-3xl font-extrabold text-indigo-700">Event Horizon</h1>
             </div>
             <nav>
-                <ul class="flex space-x-6">
-                    <li><a href="index.html" class="text-gray-600 hover:text-blue-600 font-semibold text-lg">Home</a></li>
-                    <li><a href="events.html" class="text-gray-600 hover:text-blue-600 font-semibold text-lg">Events</a></li>
-                    <li><a href="about.html" class="text-gray-600 hover:text-blue-600 font-semibold text-lg">About Us</a></li>
-                    <li><a href="registration.html" class="text-gray-600 hover:text-blue-600 font-semibold text-lg">Register</a></li>
-                    <li><a href="gallery.html" class="text-blue-600 hover:text-blue-800 font-semibold text-lg">Gallery</a></li>
-                    <li><a href="sponsors.html" class="text-gray-600 hover:text-blue-600 font-semibold text-lg">Sponsors</a></li>
+                <ul class="flex space-x-8">
+                    <li><a href="index.html" class="text-gray-700 hover:text-indigo-600 font-semibold text-lg transition duration-300">Home</a></li>
+                    <li><a href="events.html" class="text-gray-700 hover:text-indigo-600 font-semibold text-lg transition duration-300">Events</a></li>
+                    <li><a href="about.html" class="text-gray-700 hover:text-indigo-600 font-semibold text-lg transition duration-300">About Us</a></li>
+                    <li><a href="registration.html" class="text-gray-700 hover:text-indigo-600 font-semibold text-lg transition duration-300">Register</a></li>
+                    <li><a href="gallery.html" class="text-indigo-600 hover:text-indigo-800 font-semibold text-lg transition duration-300">Gallery</a></li>
+                    <li><a href="sponsors.html" class="text-gray-700 hover:text-indigo-600 font-semibold text-lg transition duration-300">Sponsors</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main class="container mx-auto px-4 my-8">
-        <h2 class="text-3xl font-bold text-gray-800 mb-6">Our Event Gallery</h2>
+    <main class="container mx-auto px-6 my-16">
+        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Our Event Gallery</h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer">
-                <img src="images/gallery-thumb-1.jpg" data-src="images/gallery-thumb-1.jpg" alt="Gallery Image 1" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer" data-caption="Tech Summit Keynote">
+                <img src="images/gallery-thumb-1.jpg" data-fullsrc="images/gallery-thumb-1.jpg" alt="Gallery Image 1" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
                 <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <p class="text-white text-lg font-semibold">Tech Summit Keynote</p>
                 </div>
             </div>
 
-            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer">
-                <img src="images/gallery-thumb-2.jpg" data-src="images/gallery-thumb-2.jpg" alt="Gallery Image 2" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer" data-caption="Music Fest Crowd">
+                <img src="images/gallery-thumb-2.jpg" data-fullsrc="images/gallery-thumb-2.jpg" alt="Gallery Image 2" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
                 <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <p class="text-white text-lg font-semibold">Music Fest Crowd</p>
                 </div>
             </div>
 
-            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer">
-                <img src="images/gallery-thumb-3.jpg" data-src="images/gallery-full-3.jpg" alt="Gallery Image 3" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer" data-caption="Art Gala Exhibit">
+                <img src="images/gallery-thumb-3.jpg" data-fullsrc="images/gallery-thumb-3.jpg" alt="Gallery Image 3" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
                 <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <p class="text-white text-lg font-semibold">Art Gala Exhibit</p>
                 </div>
             </div>
 
-            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer">
-                <img src="images/gallery-thumb-4.jpg" data-src="images/gallery-full-4.jpg" alt="Gallery Image 4" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer" data-caption="Networking Session">
+                <img src="images/gallery-thumb-4.jpg" data-fullsrc="images/gallery-full-4.jpg" alt="Gallery Image 4" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
                 <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <p class="text-white text-lg font-semibold">Networking Session</p>
                 </div>
             </div>
 
-            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer">
-                <img src="images/gallery-thumb-5.jpg" data-src="images/gallery-full-5.jpg" alt="Gallery Image 5" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer" data-caption="Workshop in Progress">
+                <img src="images/gallery-thumb-5.jpg" data-fullsrc="images/gallery-full-5.jpg" alt="Gallery Image 5" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
                 <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <p class="text-white text-lg font-semibold">Workshop in Progress</p>
                 </div>
             </div>
 
-            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer">
-                <img src="images/gallery-thumb-6.jpg" data-src="images/gallery-full-6.jpg" alt="Gallery Image 6" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer" data-caption="Opening Ceremony">
+                <img src="images/gallery-thumb-6.jpg" data-fullsrc="images/gallery-full-6.jpg" alt="Gallery Image 6" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
                 <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <p class="text-white text-lg font-semibold">Opening Ceremony</p>
                 </div>
@@ -76,17 +124,36 @@
             </div>
     </main>
 
-    <footer class="bg-gray-800 text-white py-6 mt-8">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2025 Event Horizon. All rights reserved.</p>
+    <footer class="bg-gray-900 text-gray-300 py-10 px-6 mt-16 rounded-t-3xl shadow-inner">
+        <div class="container mx-auto text-center">
+            <div class="flex flex-col md:flex-row justify-center items-center mb-6">
+                <img src="images/logo-white.png" alt="Event Horizon Logo" class="h-12 w-12 mb-4 md:mb-0 md:mr-4">
+                <p class="text-xl font-semibold">Event Horizon</p>
+            </div>
+            <p class="mb-4">© 2025 Event Horizon. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 text-lg">
+                <a href="#" class="hover:text-white transition duration-200">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition duration-200">Terms of Service</a>
+                <a href="#" class="hover:text-white transition duration-200">Sitemap</a>
+            </div>
         </div>
     </footer>
 
     <div id="lightbox-modal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
         <div class="relative bg-white p-4 rounded-lg shadow-lg max-w-3xl max-h-full overflow-auto">
-            <button class="absolute top-2 right-2 text-gray-800 text-4xl font-bold leading-none hover:text-gray-600 focus:outline-none" id="close-lightbox">&times;</button>
+            <button class="absolute top-4 right-4 z-10 lightbox-close-btn" id="close-lightbox">&times;</button>
+
             <img src="" alt="Lightbox Image" id="lightbox-img" class="max-w-full max-h-full object-contain">
+
             <div id="lightbox-caption" class="text-center text-gray-700 mt-2"></div>
+
+            <button id="prev-lightbox" class="absolute top-1/2 left-4 transform -translate-y-1/2 z-10 lightbox-nav-btn">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+
+            <button id="next-lightbox" class="absolute top-1/2 right-4 transform -translate-y-1/2 z-10 lightbox-nav-btn">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
         </div>
     </div>
 

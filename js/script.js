@@ -1,192 +1,227 @@
 $(document).ready(function() {
-
-    // --- Particles.js Initialization for Hero Section ---
-    particlesJS('particles-js', {
-        "particles": {
-            "number": {
-                "value": 80, // Number of particles
-                "density": {
-                    "enable": true,
-                    "value_area": 800 // Area where particles are distributed
-                }
-            },
-            "color": {
-                "value": "#ffffff" // Particle color (white for futuristic look)
-            },
-            "shape": {
-                "type": "circle", // Shape of particles
-                "stroke": {
-                    "width": 0,
-                    "color": "#000000"
-                },
-                "polygon": {
-                    "nb_sides": 5
-                },
-                "image": {
-                    "src": "img/github.svg",
-                    "width": 100,
-                    "height": 100
-                }
-            },
-            "opacity": {
-                "value": 0.5, // Opacity of particles
-                "random": false,
-                "anim": {
-                    "enable": false,
-                    "speed": 1,
-                    "opacity_min": 0.1,
-                    "sync": false
-                }
-            },
-            "size": {
-                "value": 3, // Size of particles
-                "random": true,
-                "anim": {
-                    "enable": false,
-                    "speed": 40,
-                    "size_min": 0.1,
-                    "sync": false
-                }
-            },
-            "line_linked": {
-                "enable": true,
-                "distance": 150, // Max distance for lines between particles
-                "color": "#ffffff", // Color of lines
-                "opacity": 0.4,
-                "width": 1
-            },
-            "move": {
-                "enable": true,
-                "speed": 6, // Speed of particle movement
-                "direction": "none",
-                "random": false,
-                "straight": false,
-                "out_mode": "out",
-                "bounce": false,
-                "attract": {
-                    "enable": false,
-                    "rotateX": 600,
-                    "rotateY": 1200
-                }
-            }
-        },
-        "interactivity": {
-            "detect_on": "canvas",
-            "events": {
-                "onhover": {
-                    "enable": true,
-                    "mode": "grab" // Particles react on hover (grab, repulse, bubble)
-                },
-                "onclick": {
-                    "enable": true,
-                    "mode": "push" // Particles react on click (push, remove, bubble)
-                },
-                "resize": true
-            },
-            "modes": {
-                "grab": {
-                    "distance": 200,
-                    "line_linked": {
-                        "opacity": 1
+    // Particles.js initialization (only on index.html if needed)
+    // You might want to move this to a separate particles.js if not global
+    if ($('#particles-js').length) {
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
                     }
                 },
-                "bubble": {
-                    "distance": 400,
-                    "size": 40,
-                    "duration": 2,
-                    "opacity": 8,
-                    "speed": 3
+                "color": {
+                    "value": "#ffffff"
                 },
-                "repulse": {
-                    "distance": 200,
-                    "duration": 0.4
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    },
+                    "image": {
+                        "src": "img/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
                 },
-                "push": {
-                    "particles_nb": 4
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
                 },
-                "remove": {
-                    "particles_nb": 2
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
                 }
-            }
-        },
-        "retina_detect": true
-    });
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    }
 
-    // Your existing jQuery code for the image slider and lightbox goes here
-    // ... (rest of your script.js content)
-    // Image Slider Functionality
-    const $sliderWrapper = $('.slider-wrapper');
-    const $sliderImages = $('.slider-image');
-    const $prevBtn = $('.slider-prev');
-    const $nextBtn = $('.slider-next');
-    const imageCount = $sliderImages.length;
+    // Event Highlights Slider Logic
+    const sliderWrapper = $('.slider-wrapper');
+    const sliderImages = $('.slider-image');
+    const totalImages = sliderImages.length;
     let currentIndex = 0;
 
     function updateSliderPosition() {
-        $sliderWrapper.css('transform', `translateX(-${currentIndex * 100}%)`);
+        if (sliderWrapper.length) { // Check if slider exists on the page
+            sliderWrapper.css('transform', 'translateX(' + (-currentIndex * 100) + '%)');
+        }
     }
 
-    $nextBtn.on('click', function() {
-        currentIndex = (currentIndex + 1) % imageCount;
+    $('.slider-next').on('click', function() {
+        currentIndex = (currentIndex + 1) % totalImages;
         updateSliderPosition();
     });
 
-    $prevBtn.on('click', function() {
-        currentIndex = (currentIndex - 1 + imageCount) % imageCount;
+    $('.slider-prev').on('click', function() {
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
         updateSliderPosition();
     });
 
-    // Auto-slide functionality (optional)
-    setInterval(function() {
-        currentIndex = (currentIndex + 1) % imageCount;
-        updateSliderPosition();
-    }, 5000); // Change image every 5 seconds
+    // Optional: Auto-slide
+    // setInterval(() => {
+    //     $('.slider-next').click();
+    // }, 5000); // Change image every 5 seconds
 
-    // --- Lightbox/Modal Functionality for Gallery ---
+
+    // Lightbox Functionality for Gallery Page
+    const $galleryItems = $('.gallery-item');
     const $lightboxModal = $('#lightbox-modal');
     const $lightboxImg = $('#lightbox-img');
     const $lightboxCaption = $('#lightbox-caption');
-    const $closeLightboxBtn = $('#close-lightbox');
+    const $closeLightbox = $('#close-lightbox');
+    const $prevLightbox = $('#prev-lightbox');
+    const $nextLightbox = $('#next-lightbox');
 
-    // Open lightbox when a gallery item is clicked
-    $('.gallery-item').on('click', function() {
-        const imageUrl = $(this).find('img').data('src'); // Get the full-size image URL from data-src
-        const imageAlt = $(this).find('img').attr('alt'); // Get the alt text for caption
+    let currentGalleryIndex = 0; // To keep track of the current image in the lightbox
 
-        $lightboxImg.attr('src', imageUrl);
-        $lightboxCaption.text(imageAlt);
-        $lightboxModal.removeClass('hidden'); // Show the modal
-        $('body').addClass('overflow-hidden'); // Prevent scrolling of background
+    // Function to show a specific image in the lightbox
+    function showLightboxImage(index) {
+        if (index < 0 || index >= $galleryItems.length) {
+            return; // Invalid index
+        }
+
+        currentGalleryIndex = index;
+        const $currentItem = $($galleryItems[currentGalleryIndex]);
+        const fullSrc = $currentItem.find('img').data('fullsrc');
+        const caption = $currentItem.data('caption');
+
+        $lightboxImg.attr('src', fullSrc);
+        $lightboxCaption.text(caption);
+        $lightboxModal.removeClass('hidden'); // Show the lightbox
+    }
+
+    // Open lightbox when gallery item is clicked
+    $galleryItems.on('click', function() {
+        const clickedIndex = $galleryItems.index(this);
+        showLightboxImage(clickedIndex);
     });
 
-    // Close lightbox when close button is clicked
-    $closeLightboxBtn.on('click', function() {
-        $lightboxModal.addClass('hidden'); // Hide the modal
-        $('body').removeClass('overflow-hidden'); // Re-enable background scrolling
+    // Close lightbox
+    $closeLightbox.on('click', function() {
+        $lightboxModal.addClass('hidden');
+        $lightboxImg.attr('src', ''); // Clear image source
     });
 
-    // Close lightbox when clicking outside the image content (on the overlay)
+    // Navigate to previous image
+    $prevLightbox.on('click', function() {
+        let prevIndex = currentGalleryIndex - 1;
+        if (prevIndex < 0) {
+            prevIndex = $galleryItems.length - 1; // Loop to the last image
+        }
+        showLightboxImage(prevIndex);
+    });
+
+    // Navigate to next image
+    $nextLightbox.on('click', function() {
+        let nextIndex = currentGalleryIndex + 1;
+        if (nextIndex >= $galleryItems.length) {
+            nextIndex = 0; // Loop to the first image
+        }
+        showLightboxImage(nextIndex);
+    });
+
+    // Close lightbox when clicking outside the content (on the overlay)
     $lightboxModal.on('click', function(e) {
-        // Check if the click occurred directly on the modal overlay, not its content
-        if ($(e.target).is($lightboxModal)) {
-            $lightboxModal.addClass('hidden'); // Hide the modal
-            $('body').removeClass('overflow-hidden'); // Re-enable background scrolling
+        if (e.target.id === 'lightbox-modal') {
+            $closeLightbox.click();
         }
     });
 
-    // Optional: Close lightbox with Escape key
+    // Close lightbox with Escape key
     $(document).on('keydown', function(e) {
         if (e.key === 'Escape' && !$lightboxModal.hasClass('hidden')) {
-            $lightboxModal.addClass('hidden');
-            $('body').removeClass('overflow-hidden');
+            $closeLightbox.click();
         }
     });
 
-    // Upcoming News Slide (Down to Up direction)
-    // This part is handled primarily by CSS animation, but you can add JS if more complex logic is needed
-    // For a simple continuous scroll, CSS is often more performant.
-    // The CSS @keyframes `news-scroll` handles the upward movement.
-    // The `news-list:hover { animation-play-state: paused; }` handles pausing on hover.
+    // Navigate with arrow keys when lightbox is open
+    $(document).on('keydown', function(e) {
+        if (!$lightboxModal.hasClass('hidden')) {
+            if (e.key === 'ArrowLeft') {
+                $prevLightbox.click();
+            } else if (e.key === 'ArrowRight') {
+                $nextLightbox.click();
+            }
+        }
+    });
 
-    // If you need more dynamic news loading or interaction, you'd add more jQuery/JS here.
 });
