@@ -212,6 +212,17 @@ $(document).ready(function() {
             $closeLightbox.click();
         }
     });
+    $('.page-transition').on('click', function(e) {
+    e.preventDefault(); // Stop default link behavior
+    const targetUrl = $(this).attr('href');
+
+    $('body').addClass('fade-out');
+
+    setTimeout(function() {
+        window.location.href = targetUrl;
+    }, 200); // Match this to your CSS transition time
+});
+
 
     // Navigate with arrow keys when lightbox is open
     $(document).on('keydown', function(e) {

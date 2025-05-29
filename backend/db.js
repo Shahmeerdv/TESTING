@@ -1,9 +1,10 @@
-const mysql = require('mysql');
+// db.js
+const mysql = require('mysql2');
 
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '', // default XAMPP password
+    password: 'sham1234', // your MySQL password
     database: 'event_horizon'
 });
 
