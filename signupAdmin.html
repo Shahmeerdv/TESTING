@@ -22,10 +22,10 @@
 
                 </div>
                 <span>or use your email for registration</span>
-                <div class="infield">
+                <!-- <div class="infield">
                     <input type="text" placeholder="Name" />
                     <label></label>
-                </div>
+                </div> -->
                 <div class="infield">
                     <input type="email" placeholder="Email" name="email"/>
                     <label></label>
@@ -71,9 +71,9 @@
                     <h1>Hello, Friend!</h1>
                     <p>Enter your personal details and start journey with us</p>
                     <button class="ghost" id="signUp">Sign Up</button>
-                    <a href="signupAdmin.html">
-                        <button class="ghost" id="signUpAdmin" style="margin-top: 16px" >Sign in as admin</button>
-                    </a>
+                    <a href="signup.html">
+                        <button class="ghost" id="signUpAdmin" style="margin-top: 16px" >Sign in as student</button>
+                    </a>                    
                 </div>
             </div>
         </div>
@@ -84,6 +84,7 @@
     <script>
         const signUpButton = document.getElementById('signUp');
         const signInButton = document.getElementById('signIn');
+        const signUpAdmin = document.getElementById('signUpAdmin');
         const container = document.getElementById('container');
 
 
@@ -94,6 +95,10 @@
 
         signInButton.addEventListener('click', () => {
             container.classList.remove("right-panel-active");
+        });
+
+        signUpAdmin.addEventListener('click', () => {
+            container.classList.add("right-panel-active");
         });
 
         // Redirect functions for form buttons
