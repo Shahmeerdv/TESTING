@@ -1,117 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign in || Sign up form</title>
-    <!-- font awesome icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- css stylesheet -->
-    <link rel="stylesheet" href="css/signup.css">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Sign In || Sign Up</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/signup.css" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .error-message {
+      color: red;
+      font-size: 0.875rem;
+      display: none;
+      margin-top: 4px;
+    }
+    .input-error {
+      border-color: red;
+    }
+    /* Adjust the sign-in container to account for header */
+    .signin-container {
+      margin-top: 80px;
+    }
+  </style>
 </head>
-<body>
-    <div class="container" id="container">
-        <div class="form-container sign-up-container">
-            <form action="#">
-                <h1>Create Account</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+<body class="font-inter antialiased bg-gray-50 text-gray-800">
 
-                </div>
-                <span>or use your email for registration</span>
-                <!-- <div class="infield">
-                    <input type="text" placeholder="Name" />
-                    <label></label>
-                </div> -->
-                <div class="infield">
-                    <input type="email" placeholder="Email" name="email"/>
-                    <label></label>
-                </div>
-                <div class="infield">
-                    <input type="password" placeholder="Password" />
-                    <label></label>
-                </div>
-                <button type="button" onclick="redirectToSignUp()">Sign Up</button>
-            </form>
-        </div>
-        
-        <div class="form-container sign-in-container">
-            <form action="#">
-                <h1>Sign in</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <span>or use your account</span>
-                <div class="infield">
-                    <input type="email" placeholder="Email" name="email"/>
-                    <label></label>
-                </div>
-                <div class="infield">
-                    <input type="password" placeholder="Password" />
-                    <label></label>
-                </div>
-                <a href="#" class="forgot">Forgot your password?</a>
-                <button type="button" onclick="redirectToSignIn()">Sign In</button>
-            </form>
-        </div>
-        
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button class="ghost" id="signIn">Sign In</button>
-                </div>
-                <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
-                    <button class="ghost" id="signUp">Sign Up</button>
-                    <a href="signup.html">
-                        <button class="ghost" id="signUpAdmin" style="margin-top: 16px" >Sign in as student</button>
-                    </a>                    
-                </div>
-            </div>
-        </div>
+  <!-- Keep the same header as index.html -->
+  <header class="bg-white shadow-lg py-4 sticky top-0 z-40">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <div class="flex items-center">
+        <img src="images/logo.png" alt="Event Horizon Logo" class="h-14 w-14 mr-3">
+        <h1 class="text-3xl font-extrabold text-indigo-700">Event Horizon</h1>
+      </div>
+      <nav>
+        <ul class="flex space-x-8">
+          <li><a href="index.html" class="text-gray-700 hover:text-indigo-600 font-semibold text-lg transition duration-300">Home</a></li>
+          <li><a href="events.html" class="text-gray-700 hover:text-indigo-600 font-semibold text-lg transition duration-300">Events</a></li>
+          <li><a href="about.html" class="text-gray-700 hover:text-indigo-600 font-semibold text-lg transition duration-300">About Us</a></li>
+          <li><a href="registration.html" class="text-gray-700 hover:text-indigo-600 font-semibold text-lg transition duration-300">Register</a></li>
+          <li><a href="gallery.html" class="text-gray-700 hover:text-indigo-600 font-semibold text-lg transition duration-300">Gallery</a></li>
+          <li><a href="sponsors.html" class="text-gray-700 hover:text-indigo-600 font-semibold text-lg transition duration-300">Sponsors</a></li>
+          <li><a href="signup.html" class="text-indigo-600 hover:text-indigo-800 font-semibold text-lg transition duration-300">Sign up</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
+  <!-- Wrap the existing sign-in content in a container with top margin -->
+  <div class="signin-container">
+    <div class="container" id="container">
+      <div class="form-container sign-up-container">
+        <form id="adminSignUpForm">
+          <h1>Create Admin Account</h1>
+          <div class="social-container">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <span>or use your email for registration</span>
+          <div class="infield">
+            <input type="email" id="adminSignUpEmail" placeholder="Email" />
+            <div class="error-message" id="adminSignUpEmailError">Valid email is required.</div>
+          </div>
+          <div class="infield">
+            <input type="password" id="adminSignUpPassword" placeholder="Password" />
+            <div class="error-message" id="adminSignUpPasswordError">Password must be at least 6 characters.</div>
+          </div>
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
 
-    <!-- JavaScript -->
-    <script>
-        const signUpButton = document.getElementById('signUp');
-        const signInButton = document.getElementById('signIn');
-        const signUpAdmin = document.getElementById('signUpAdmin');
-        const container = document.getElementById('container');
+      <div class="form-container sign-in-container">
+        <form id="adminSignInForm">
+          <h1>Admin Sign In</h1>
+          <div class="social-container">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <span>or use your account</span>
+          <div class="infield">
+            <input type="email" id="adminSignInEmail" placeholder="Email" />
+            <div class="error-message" id="adminSignInEmailError">Email is required.</div>
+          </div>
+          <div class="infield">
+            <input type="password" id="adminSignInPassword" placeholder="Password" />
+            <div class="error-message" id="adminSignInPasswordError">Password is required.</div>
+          </div>
+          <a href="#" class="forgot">Forgot your password?</a>
+          <button type="submit">Sign In</button>
+        </form>
+      </div>
 
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Welcome Back!</h1>
+            <p>To keep connected, please login with your admin credentials</p>
+            <button class="ghost" id="signIn">Sign In</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1>Hello, Admin!</h1>
+            <p>Enter your admin details to start managing the platform</p>
+            <button class="ghost" id="signUp">Sign Up</button>
+            <a href="signup.html">
+              <button class="ghost" id="signUpAdmin" style="margin-top: 16px">Sign in as Student</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        // Panel switching functionality
-        signUpButton.addEventListener('click', () => {
-            container.classList.add("right-panel-active");
-        });
+  <script src="js/validation.js"></script>
+  <script>
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const signUpAdmin = document.getElementById('signUpAdmin');
+    const container = document.getElementById('container');
 
-        signInButton.addEventListener('click', () => {
-            container.classList.remove("right-panel-active");
-        });
+    // Panel switching functionality
+    signUpButton.addEventListener('click', () => {
+      container.classList.add("right-panel-active");
+    });
 
-        signUpAdmin.addEventListener('click', () => {
-            container.classList.add("right-panel-active");
-        });
+    signInButton.addEventListener('click', () => {
+      container.classList.remove("right-panel-active");
+    });
 
-        // Redirect functions for form buttons
-        function redirectToSignUp() {
-            // You can add form validation here before redirecting
-            window.location.href = 'fetch.html';
-        }
+    signUpAdmin.addEventListener('click', () => {
+      container.classList.add("right-panel-active");
+    });
 
-        function redirectToSignIn() {
-            // You can add form validation here before redirecting
-            window.location.href = 'fetch.html'; // or whatever your main page is
-        }
-    </script>
+    // Redirect functions for form buttons
+    function redirectToSignUp() {
+      window.location.href = 'fetch.html';
+    }
 
+    function redirectToSignIn() {
+      window.location.href = 'fetch.html';
+    }
+  </script>
 </body>
 </html>
