@@ -6,11 +6,53 @@
     <title>Event Horizon - About Us</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        
+        /* Animated Gradient Background for Hero Section */
+        .animated-gradient-hero {
+            background-image: linear-gradient(45deg, #6a11cb, #2575fc, #87CEEB, #6495ED);
+            background-size: 400% 400%;
+            animation: gradient-shift 15s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Animated Gradient Background for Core Values Section */
+        .animated-gradient-core-values {
+            /* Distinct gradient colors and angle */
+            background-image: linear-gradient(135deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
+            background-size: 300% 300%; /* Slightly smaller size for a different feel */
+            animation: gradient-shift-core-values 20s ease infinite; /* Slower animation */
+        }
+
+        @keyframes gradient-shift-core-values {
+            0% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+    </style>
 </head>
 <body class="font-sans antialiased bg-gray-100">
 
-<header class="bg-white shadow-lg py-4 sticky top-0 z-40">
-        <div class="container mx-auto px-6 flex justify-between items-center">
+<header class="bg-white shadow-md py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
             <div class="flex items-center">
                 <img src="images/logo.png" alt="Event Horizon Logo" class="h-14 w-14 mr-3">
                 <h1 class="text-3xl font-extrabold text-indigo-700">Event Horizon</h1>
@@ -28,80 +70,120 @@
         </div>
     </header>
 
-    <main class="container mx-auto px-4 my-8 bg-white p-8 rounded-lg shadow-md">
-        <h2 class="text-3xl font-bold text-gray-800 mb-6">About Event Horizon</h2>
+    <main class="container mx-auto px-4 my-12">
+        <div class="bg-white p-8 rounded-lg shadow-md">
+            <div class="prose max-w-none text-gray-700">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6 text-center" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">Our Journey So Far</h2>
+                <p class="mb-6 text-lg leading-relaxed" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    At **Event Horizon**, located in Faisalabad, Punjab, Pakistan, we are passionate about creating memorable and impactful events. Our mission is to connect people through shared experiences, fostering community and providing opportunities for growth and engagement.
+                </p>
+                <p class="mb-6 text-lg leading-relaxed" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                    Founded in 2023 in Faisalabad, Event Horizon has quickly grown from a local initiative to a platform with a vision for broader impact. We strive to make event discovery and participation easy and enjoyable for attendees across Punjab and beyond. For organizers, we offer the robust tools needed to manage successful events, from initial planning to seamless registration and insightful post-event analysis.
+                </p>
 
-        <div class="prose max-w-none text-gray-700">
-            <p class="mb-4">
-                At **Event Horizon**, we believe in the power of connection and the magic of shared experiences.
-                Our mission is to bridge the gap between event organizers and enthusiastic attendees,
-                creating a seamless and enriching journey for everyone involved.
-            </p>
-            <p class="mb-4">
-                Founded in 2023, Event Horizon started with a simple idea: to make discovering and attending
-                events easier and more engaging. We've grown into a comprehensive platform that not only
-                showcases a diverse range of events but also provides robust tools for organizers to manage
-                their events effortlessly, from ticketing and registration to promotion and analytics.
-            </p>
-
-            <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Our Vision</h3>
-            <p class="mb-4">
-                To be the leading global platform for event discovery and management, fostering vibrant communities
-                and creating unforgettable memories for millions.
-            </p>
-
-            <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Our Values</h3>
-            <ul class="list-disc list-inside mb-4">
-                <li class="mb-2"><strong class="font-medium">Community:</strong> Building connections and fostering shared passions.</li>
-                <li class="mb-2"><strong class="font-medium">Innovation:</strong> Continuously evolving our platform with cutting-edge technology.</li>
-                <li class="mb-2"><strong class="font-medium">Excellence:</strong> Delivering a high-quality, reliable, and user-friendly experience.</li>
-                <li class="mb-2"><strong class="font-medium">Accessibility:</strong> Making events enjoyable and accessible for everyone.</li>
-                <li class="mb-2"><strong class="font-medium">Transparency:</strong> Operating with integrity and clear communication.</li>
-            </ul>
-
-            <h3 class="text-2xl font-semibold text-gray-800 mt-8 mb-4">Meet the Team (Placeholder)</h3>
-            <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-4 gap-6">
-                <div class="text-center p-4 border rounded-lg shadow-sm">
-                    <img src="images/team-member1.jpg" alt="Team Member 1" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-                    <h4 class="text-lg font-semibold">Muhammad Shahmeer</h4>
-                    <p class="text-gray-600">Founder</p>
-                </div>
-                <div class="text-center p-4 border rounded-lg shadow-sm">
-                    <img src="images/team-member2.jpg" alt="Team Member 2" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-                    <h4 class="text-lg font-semibold">Huzaifa Khalid</h4>
-                    <p class="text-gray-600">Head of Technology</p>
-                </div>
-                <div class="text-center p-4 border rounded-lg shadow-sm">
-                    <img src="images/team-member3.jpg" alt="Team Member 3" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-                    <h4 class="text-lg font-semibold">Moeez Arif</h4>
-                    <p class="text-gray-600">Marketing Director</p>
-                </div>
-                <div class="text-center p-4 border rounded-lg shadow-sm">
-                    <img src="images/team-member4.jpg" alt="Team Member 3" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-                    <h4 class="text-lg font-semibold">Muhammad Ali</h4>
-                    <p class="text-gray-600">kaila man</p>
-                </div>
-                  <div class="text-center p-4 border rounded-lg shadow-sm">
-                    <img src="images/team-member4.jpg" alt="Team Member 3" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-                    <h4 class="text-lg font-semibold">Muhammad Ali</h4>
-                    <p class="text-gray-600">kaila man</p>
-                </div>
+                <h3 class="text-3xl font-bold text-gray-800 mt-10 mb-6 text-center" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">Our Vision</h3>
+                <p class="mb-6 text-xl text-center max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    To be the premier event platform in Pakistan, recognized for our unwavering commitment to quality, innovation, and vibrant community engagement. We aim to empower individuals and organizations in Faisalabad and across the nation to connect, learn, and celebrate through exceptional events.
+                </p>
             </div>
-
-            <p class="mt-8">
-                We are constantly striving to improve and expand our services. If you have any questions,
-                suggestions, or would like to partner with us, please don't hesitate to <a href="mailto:info@eventhorizon.com" class="text-blue-600 hover:underline">contact us</a>.
-            </p>
         </div>
     </main>
 
-    <footer class="bg-gray-800 text-white py-6 mt-8">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2025 Event Horizon. All rights reserved.</p>
+    <section class="animated-gradient-core-values py-16 mt-12">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-bold text-white mb-8 text-center" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">Our Core Values</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg text-center transform hover:scale-105 transition duration-300" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <svg class="w-12 h-12 mx-auto mb-3 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H2v-2a4 4 0 014-4h12.356M20 12V8a4 4 0 00-8-4H4a4 4 0 00-4 4v4m0 4h12m-4 8l3-3m0 0l3 3m-3-3V2"></path></svg>
+                    <h4 class="font-extrabold text-xl text-gray-900 mb-2">Community Focus</h4>
+                    <p class="text-gray-700 text-base leading-snug">Building strong connections within Faisalabad and beyond through shared event experiences that bring people together.</p>
+                </div>
+
+                <div class="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg text-center transform hover:scale-105 transition duration-300" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                    <svg class="w-12 h-12 mx-auto mb-3 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 7h2m2 0h2m2 0h2M5 11h2m2 0h2m2 0h2M5 15h2m2 0h2m2 0h2m-12 0h2m-2-4h2m-2-4h2m-2-4h2M12 3v18M4 7h16a2 2 0 002-2V5a2 2 0 00-2-2H4a2 2 0 00-2 2v14a2 2 0 002 2h16a2 2 0 002-2V19a2 2 0 00-2-2H4a2 2 0 00-2 2z"></path></svg>
+                    <h4 class="font-extrabold text-xl text-gray-900 mb-2">Innovative Approach</h4>
+                    <p class="text-gray-700 text-base leading-snug">Leveraging the latest technologies and creative solutions to enhance event experiences in Faisalabad and beyond.</p>
+                </div>
+
+                <div class="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg text-center transform hover:scale-105 transition duration-300" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                    <svg class="w-12 h-12 mx-auto mb-3 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <h4 class="font-extrabold text-xl text-gray-900 mb-2">Excellence in Service</h4>
+                    <p class="text-gray-700 text-base leading-snug">Committed to providing high-quality, reliable, and user-friendly services to all our participants and partners.</p>
+                </div>
+
+                <div class="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg text-center transform hover:scale-105 transition duration-300" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
+                    <svg class="w-12 h-12 mx-auto mb-3 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    <h4 class="font-extrabold text-xl text-gray-900 mb-2">Accessibility for All</h4>
+                    <p class="text-gray-700 text-base leading-snug">Striving to make events enjoyable and accessible for everyone, fostering an inclusive environment.</p>
+                </div>
+
+                <div class="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg text-center transform hover:scale-105 transition duration-300" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
+                    <svg class="w-12 h-12 mx-auto mb-3 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h2m2 0h2m-2-3v4m0-3h4m-2-3v4M6 19a2 2 0 01-2-2v-5a2 2 0 012-2h12a2 2 0 012 2v5a2 2 0 01-2 2H9z"></path></svg>
+                    <h4 class="font-extrabold text-xl text-gray-900 mb-2">Integrity & Transparency</h4>
+                    <p class="text-gray-700 text-base leading-snug">Operating with unwavering honesty, clear communication, and ethical practices in all our dealings.</p>
+                </div>
+
+                <div class="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg text-center transform hover:scale-105 transition duration-300" data-aos="fade-up" data-aos-duration="800" data-aos-delay="700">
+                    <svg class="w-12 h-12 mx-auto mb-3 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V4m0 12v4M.7 12H4m18.3 0H20M5 5l1.5 1.5M18.5 18.5l1.5 1.5M5 19.5l1.5-1.5M18.5 5.5l1.5-1.5"></path></svg>
+                    <h4 class="font-extrabold text-xl text-gray-900 mb-2">Passion & Dedication</h4>
+                    <p class="text-gray-700 text-base leading-snug">Our team is fueled by a deep passion for events and a relentless dedication to our mission and community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-4 my-12">
+        <div class="bg-white p-8 rounded-lg shadow-md">
+            <div class="prose max-w-none text-gray-700">
+                <h3 class="text-3xl font-bold text-gray-800 mt-10 mb-8 text-center" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">Meet the Team</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div class="text-center p-4 border rounded-lg shadow-sm" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="200">
+                        <img src="images/shahmeer.jpg" alt="Muhammad Shahmeer" class="w-24 h-24 rounded-full mx-auto mb-3 object-cover shadow-md">
+                        <h4 class="text-xl font-bold text-gray-900">Muhammad Shahmeer</h4>
+                        <p class="text-gray-700 text-base">Event Director</p>
+                    </div>
+                    <div class="text-center p-4 border rounded-lg shadow-sm" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="300">
+                        <img src="images/huziafa.jpg" alt="Huzaifa Khalid" class="w-24 h-24 rounded-full mx-auto mb-3 object-cover shadow-md">
+                        <h4 class="text-xl font-bold text-gray-900">Huzaifa Khalid</h4>
+                        <p class="text-gray-700 text-base">Event Coordinator</p>
+                    </div>
+                    <div class="text-center p-4 border rounded-lg shadow-sm" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="400">
+                        <img src="images/muiz.jpg" alt="Moeez Arif" class="w-24 h-24 rounded-full mx-auto mb-3 object-cover shadow-md">
+                        <h4 class="text-xl font-bold text-gray-900">Moeez Arif</h4>
+                        <p class="text-gray-700 text-base">Design And Creative Lead</p>
+                    </div>
+                    <div class="text-center p-4 border rounded-lg shadow-sm" data-aos="zoom-in" data-aos-duration="700" data-aos-delay="500">
+                        <img src="images/ali.jpg" alt="Muhammad Ali" class="w-24 h-24 rounded-full mx-auto mb-3 object-cover shadow-md">
+                        <h4 class="text-xl font-bold text-gray-900">Muhammad Ali</h4>
+                        <p class="text-gray-700 text-base">Security Head</p>
+                    </div>
+                </div>
+
+                <p class="mt-10 text-lg text-center max-w-2xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    We are continuously working to enhance Event Horizon and better serve the Faisalabad community. If you have any inquiries or suggestions, please feel free to contact us</a>.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-300 py-10 px-6 mt-16 rounded-t-3xl shadow-inner">
+        <div class="container mx-auto text-center">
+            <div class="flex flex-col md:flex-row justify-center items-center mb-6">
+                <img src="images/logo-white.png" alt="Event Horizon Logo" class="h-12 w-12 mb-4 md:mb-0 md:mr-4">
+                <p class="text-xl font-semibold">Event Horizon</p>
+            </div>
+            <p class="mb-4">© 2025 Event Horizon. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 text-lg">
+                <a href="#" class="hover:text-white transition duration-200">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition duration-200">Terms of Service</a>
+                <a href="#" class="hover:text-white transition duration-200">Sitemap</a>
+            </div>
         </div>
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/script.js"></script>
+    
 </body>
 </html>

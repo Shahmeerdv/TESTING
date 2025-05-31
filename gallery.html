@@ -7,11 +7,16 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+<<<<<<< HEAD
+=======
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+>>>>>>> c27fc77e53e2b3533309c50b93cddddaac249ce5
     <style>
         /* Apply Inter font globally for consistency */
         body {
             font-family: 'Inter', sans-serif;
         }
+<<<<<<< HEAD
         /* Custom styles for lightbox navigation buttons */
         .lightbox-nav-btn {
             background-color: rgba(0, 0, 0, 0.4); /* Darker, more visible transparency */
@@ -35,6 +40,54 @@
             position: relative; /* This is crucial for absolute positioning of nav buttons and close button */
         }
 
+=======
+
+        /* Animated Gradient Background for the Page Title Section (Not Header/Footer) */
+        .animated-gradient-page-title {
+            /* Distinct gradient colors and angle (lighter blues/greens) */
+            background-image: linear-gradient(90deg, #87CEEB, #ADD8E6, #90EE90); /* Sky Blue, Light Blue, Light Green */
+            background-size: 300% 300%; /* Make the background larger than the container */
+            animation: gradient-shift-title 18s ease infinite; /* Apply the animation */
+            /* Add some shadow for depth, similar to what the header had */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        @keyframes gradient-shift-title {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Custom styles for lightbox navigation buttons */
+        .lightbox-nav-btn {
+            background-color: rgba(0, 0, 0, 0.4); /* Darker, more visible transparency */
+            backdrop-filter: blur(3px); /* Optional: Frosted glass effect */
+            border-radius: 9999px; /* Fully rounded */
+            padding: 0.75rem; /* p-3 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white; /* Icon color */
+            font-size: 2rem; /* Larger icon */
+            opacity: 0.8;
+            transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
+        }
+        .lightbox-nav-btn:hover {
+            opacity: 1;
+            background-color: rgba(0, 0, 0, 0.6); /* Even darker on hover */
+        }
+        /* Ensure the lightbox content itself is relative for button positioning */
+        #lightbox-modal > div {
+            position: relative; /* This is crucial for absolute positioning of nav buttons and close button */
+        }
+
+>>>>>>> c27fc77e53e2b3533309c50b93cddddaac249ce5
         /* Custom styles for the close button */
         .lightbox-close-btn {
             background-color: rgba(0, 0, 0, 0.4); /* Consistent with nav buttons */
@@ -76,6 +129,7 @@
         </div>
     </header>
 
+<<<<<<< HEAD
     <main class="container mx-auto px-6 my-16">
         <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Our Event Gallery</h2>
 
@@ -117,11 +171,90 @@
 
             <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer" data-caption="Opening Ceremony">
                 <img src="images/gallery-thumb-6.jpg" data-fullsrc="images/gallery-full-6.jpg" alt="Gallery Image 6" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+=======
+    <section class="animated-gradient-page-title py-16 mt-0">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-white mb-2" data-aos="fade-up" data-aos-duration="800">Our Event Gallery</h2>
+            <p class="text-lg text-gray-100" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">A visual journey through our most memorable moments.</p>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-6 my-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer" data-caption="Opening Ceremony">
+                <img src="images/E1.jpg" data-fullsrc="images/E1.jpg" alt="Gallery Image 1" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+>>>>>>> c27fc77e53e2b3533309c50b93cddddaac249ce5
                 <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <p class="text-white text-lg font-semibold">Opening Ceremony</p>
                 </div>
             </div>
+
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer" data-caption="Welcoming Sponsors">
+                <img src="images/event2.jpg" data-fullsrc="images/event2.jpg" alt="Gallery Image 2" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold">Welcoming Sponsors</p>
+                </div>
             </div>
+
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer" data-caption="National Anthem">
+                <img src="images/event5.jpg" data-fullsrc="images/event5.jpg"  alt="Gallery Image 3" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold">National Anthem</p>
+                </div>
+            </div>
+
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer" data-caption="Guest Speakers">
+                <img src="images/E3.jpg" data-fullsrc="images/E3.jpg" alt="Gallery Image 4" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold">Guest Speakers</p>
+                </div>
+            </div>
+
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer" data-caption="Cricket Match">
+                <img src="images/E4.webp" data-fullsrc="images/E4.webp" alt="Gallery Image 5" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold">Cricket Match</p>
+                </div>
+            </div>
+
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer" data-caption="Football Match">
+                <img src="images/E$.jpg" data-fullsrc="images/E$.jpg" alt="Gallery Image 6" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold">Football Match</p>
+                </div>
+            </div>
+
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer" data-caption="Ludo and chess tournament">
+                <img src="images/E6.webp" data-fullsrc="images/E6.webp"  alt="Gallery Image 1" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold">Ludo and chess tournament</p>
+                </div>
+            </div>
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer" data-caption="Prize distribution">
+                <img src="images/event5.jpg" data-fullsrc="images/event5.jpg" alt="Gallery Image 1" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold">Prize Distribution</p>
+                </div>
+            </div>
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer" data-caption="Dinner">
+                <img src="images/E7.jpg" data-fullsrc="images/E7.jpg" alt="Gallery Image 1" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold">Dinner</p>
+                </div>
+            </div>
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer" data-caption="Qawali">
+                <img src="images/E8.jpg" data-fullsrc="images/E8.jpg" alt="Gallery Image 1" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold">Qawali</p>
+                </div>
+            </div>
+            <div class="relative group rounded-lg shadow-md overflow-hidden gallery-item cursor-pointer" data-caption="Charity Event">
+                <img src="images/event4.jpg" data-fullsrc="images/event4.jpg"  alt="Gallery Image 1" class="w-full h-56 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-white text-lg font-semibold">Charity Event</p>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="bg-gray-900 text-gray-300 py-10 px-6 mt-16 rounded-t-3xl shadow-inner">
@@ -158,6 +291,7 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/script.js"></script>
     <script src="js/form-validation.js"></script>
 </body>

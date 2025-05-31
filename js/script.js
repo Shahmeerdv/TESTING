@@ -212,6 +212,7 @@ $(document).ready(function() {
             $closeLightbox.click();
         }
     });
+    
     $('.page-transition').on('click', function(e) {
     e.preventDefault(); // Stop default link behavior
     const targetUrl = $(this).attr('href');
@@ -223,6 +224,14 @@ $(document).ready(function() {
     }, 200); // Match this to your CSS transition time
 });
 
+// Initialize AOS
+        $(document).ready(function() {
+            AOS.init({
+                once: true, // Only animate once as elements enter the viewport
+                duration: 800, // Animation duration in ms
+                easing: 'ease-out-quad' // Easing function
+            });
+        });
 
     // Navigate with arrow keys when lightbox is open
     $(document).on('keydown', function(e) {
