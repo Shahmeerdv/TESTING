@@ -223,6 +223,28 @@ $(document).ready(function() {
         window.location.href = targetUrl;
     }, 200); // Match this to your CSS transition time
 });
+$(document).ready(function() {
+    // Toggle menu button click
+    $('.menu-toggle').on('click', function() {
+        const navUL = $('#primary-navigation');
+        navUL.toggleClass('show');
+        
+        // Toggle aria-expanded for accessibility
+        const expanded = $(this).attr('aria-expanded') === 'true' || false;
+        $(this).attr('aria-expanded', !expanded);
+    });
+
+    // Optional: close menu when clicking a nav link on mobile
+    $('#primary-navigation a').on('click', function() {
+        if ($(window).width() < 481) {
+            $('#primary-navigation').removeClass('show');
+            $('.menu-toggle').attr('aria-expanded', false);
+        }
+    });
+
+    // ... your existing JS code here ...
+});
+
 
 // Initialize AOS
         $(document).ready(function() {
