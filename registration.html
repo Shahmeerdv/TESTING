@@ -51,28 +51,24 @@
 
                 <div>
                     <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Phone Number:</label>
-                    <input type="text" id="phone" name="phone"
+                    <input type="number" id="phone" name="phone"
                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                            placeholder="+1234567890" pattern="^\+\d{10,15}$" >
                     <p class="text-red-500 text-xs italic mt-1 hidden" id="phoneError">Phone number must start with '+' and be 10-15 digits.</p>
                 </div>
-
                 <div>
-                    <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password:</label>
-                    <input type="password" id="password" name="password"
+                    <label for="Instution" class="block text-gray-700 text-sm font-bold mb-2">Institution Name:</label>
+                    <input type="text" id="Instution" name="Instution"
                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                           placeholder="********" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" >
-                    <p class="text-red-500 text-xs italic mt-1 hidden" id="passwordError">
-                        Password must be at least 8 characters long, contain one uppercase, one lowercase, one number, and one special character.
-                    </p>
+                           placeholder="xyz University" >
+                    <p class="text-red-500 text-xs italic mt-1 hidden" id="instituteError">Enter institute name</p>
                 </div>
-
                 <div>
-                    <label for="confirmPassword" class="block text-gray-700 text-sm font-bold mb-2">Confirm Password:</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword"
+                    <label for="student_id" class="block text-gray-700 text-sm font-bold mb-2">Student ID:</label>
+                    <input type="text" id="student_id" name="student_id"
                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                           placeholder="********" >
-                    <p class="text-red-500 text-xs italic mt-1 hidden" id="confirmPasswordError">Passwords do not match.</p>
+                           placeholder="xx-NTU-xx-xxxx" >
+                    <p class="text-red-500 text-xs italic mt-1 hidden" id="studentIdError">Enter valid student ID</p>
                 </div>
                 <div>
                     <label>
