@@ -195,5 +195,6 @@ $(document).ready(function() {
             console.log('Sponsor Form has validation errors.');
         }
     });
+    
 
 });  // end of document ready
