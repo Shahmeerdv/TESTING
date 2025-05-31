@@ -156,3 +156,11 @@ header {
     transform: scale(1);
     transition: transform 0.3s ease-in-out;
 }
+body {
+    transition: opacity 0.2s ease;
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0;
+}

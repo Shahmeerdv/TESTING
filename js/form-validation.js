@@ -84,7 +84,6 @@ $(document).ready(function() {
             isValid = false;
         }
 
-
         if (isValid) {
             // Form is valid
             $('#formSuccess').removeClass('hidden');
@@ -100,7 +99,6 @@ $(document).ready(function() {
         }
     });
 
-
     // --- Sponsor Form Validation ---
     $('#sponsorForm').on('submit', function(e) {
         e.preventDefault(); // Prevent default form submission
@@ -109,7 +107,7 @@ $(document).ready(function() {
 
         // Clear previous errors for this form
         $(this).find('.text-red-500').addClass('hidden');
-        $(this).find('input, select').removeClass('border-red-500');
+        $(this).find('input, select, textarea').removeClass('border-red-500');
 
         // Company Name Validation
         const $companyName = $('#companyName');
@@ -117,10 +115,9 @@ $(document).ready(function() {
             isValid = false;
         }
 
-            // Contact Person Validation
+        // Contact Person Validation
         const $contactPerson = $('#contactPerson');
         const contactPersonVal = $contactPerson.val().trim();
-
         if (contactPersonVal === '') {
             $('#contactPersonError').text('Contact Person Name is required.').removeClass('hidden');
             $contactPerson.addClass('border-red-500');
@@ -131,10 +128,9 @@ $(document).ready(function() {
             isValid = false;
         }
 
-
+        // Contact Email Validation
         const $contactEmail = $('#contactEmail');
         const emailVal = $contactEmail.val().trim();
-
         if (emailVal === '') {
             $('#contactEmailError').text('Contact Email is required.').removeClass('hidden');
             $contactEmail.addClass('border-red-500');
@@ -145,12 +141,9 @@ $(document).ready(function() {
             isValid = false;
         }
 
-
-            // Contact Phone Validation (using pattern attribute)
+        // Contact Phone Validation
         const $contactPhone = $('#contactPhone');
         const phoneVal = $contactPhone.val().trim();
-
-            // Custom validation logic
         if (phoneVal === '') {
             $('#contactPhoneError').text('Contact Phone Number is required.').removeClass('hidden');
             $contactPhone.addClass('border-red-500');
@@ -161,8 +154,7 @@ $(document).ready(function() {
             isValid = false;
         }
 
-
-        // Sponsorship Category Validation for radio buttons
+        // Sponsorship Category Validation
         const $sponsorshipCategory = $('input[name="sponsorshipCategory"]:checked');
         if ($sponsorshipCategory.length === 0) {
             $('#sponsorshipCategoryError').text('Please select a sponsorship category.').removeClass('hidden');
@@ -171,23 +163,37 @@ $(document).ready(function() {
             $('#sponsorshipCategoryError').addClass('hidden');
         }
 
-
-
+        // Final check: Send data if valid
         if (isValid) {
-            // Form is valid
-            $('#sponsorFormSuccess').removeClass('hidden');
-            $('#sponsorFormError').addClass('hidden');
-            console.log('Sponsor Form submitted successfully!', $(this).serializeArray());
-            document.getElementById('sponsorForm').reset();
+            const sponsorData = {
+                companyName: $companyName.val(),
+                contactPerson: $contactPerson.val(),
+                contactEmail: $contactEmail.val(),
+                contactPhone: $contactPhone.val(),
+                sponsorshipCategory: $sponsorshipCategory.val(),
+                message: $('#message').val()
+            };
 
-            // In a real application, you'd send this data to your Node.js backend
-            // this.reset(); // Uncomment to reset form after successful submission
+            $.ajax({
+                url: 'http://localhost:3000/submit-sponsor',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(sponsorData),
+                success: function () {
+                    $('#sponsorFormSuccess').removeClass('hidden');
+                    $('#sponsorFormError').addClass('hidden');
+                    $('#sponsorForm')[0].reset();
+                },
+                error: function () {
+                    $('#sponsorFormError').removeClass('hidden');
+                    $('#sponsorFormSuccess').addClass('hidden');
+                }
+            });
         } else {
-            // Form is invalid
             $('#sponsorFormError').removeClass('hidden');
             $('#sponsorFormSuccess').addClass('hidden');
             console.log('Sponsor Form has validation errors.');
         }
     });
 
-});
+});  // end of document ready
