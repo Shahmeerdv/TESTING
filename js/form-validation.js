@@ -66,23 +66,24 @@ $(document).ready(function() {
             isValid = false;
         }
 
+        // Password Validation (using pattern attribute)
+        const $password = $('#password');
+        if (!validateFieldWithPattern($password, $('#passwordError'), 'Password is required.')) {
+            isValid = false;
+        }
+
+        // Confirm Password Validation
+        const $confirmPassword = $('#confirmPassword');
+        if ($confirmPassword.val().trim() === '') {
+            $('#confirmPasswordError').text('Confirm Password is required.').removeClass('hidden');
+            $confirmPassword.addClass('border-red-500');
+            isValid = false;
+        } else if ($password.val() !== $confirmPassword.val()) {
+            $('#confirmPasswordError').removeClass('hidden'); // Message from HTML
+            $confirmPassword.addClass('border-red-500');
+            isValid = false;
+        }
         
-        const $technicalSelect = $('#technicalSelect');
-        if (!validateFieldWithPattern($technicalSelect, $('#technicalError'), '*Select a technical event')) {
-            isValid = false;
-        }
-        const $nontechnicalSelect = $('#nontechnicalSelect');
-        if (!validateFieldWithPattern($nontechnicalSelect, $('#nontechnicalError'), '*Select a non-technical event')) {
-            isValid = false;
-        }
-         const $Instution = $('#Instution');
-        if (!validateFieldWithPattern($Instution, $('#instituteError'), 'Institute name is required.')) {
-            isValid = false;
-        }
-         const $student_id = $('#student_id');
-        if (!validateFieldWithPattern($student_id, $('#studentIdError'), 'Student ID is required.')) {
-            isValid = false;
-        }
 
         if (isValid) {
             // Form is valid
