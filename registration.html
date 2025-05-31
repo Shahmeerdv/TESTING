@@ -30,14 +30,14 @@
 
     <main class="container mx-auto px-4 my-8">
         <div class="bg-white p-8 rounded-lg shadow-md max-w-2xl mx-auto">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Register for an Event / Create Account</h2>
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Register for an Event</h2>
 
             <form id="registrationForm" class="space-y-6">
                 <div>
                     <label for="fullName" class="block text-gray-700 text-sm font-bold mb-2">Full Name:</label>
                     <input type="text" id="fullName" name="fullName"
                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                           placeholder="John Doe" required>
+                           placeholder="John Doe" >
                     <p class="text-red-500 text-xs italic mt-1 hidden" id="fullNameError"></p>
                 </div>
 
@@ -45,7 +45,7 @@
                     <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
                     <input type="email" id="email" name="email"
                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                           placeholder="john.doe@example.com" inputmode="email" required>
+                           placeholder="john.doe@example.com" inputmode="email" >
                     <p class="text-red-500 text-xs italic mt-1 hidden" id="emailError"></p>
                 </div>
 
@@ -53,7 +53,7 @@
                     <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Phone Number:</label>
                     <input type="text" id="phone" name="phone"
                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                           placeholder="+1234567890" pattern="^\+\d{10,15}$" required>
+                           placeholder="+1234567890" pattern="^\+\d{10,15}$" >
                     <p class="text-red-500 text-xs italic mt-1 hidden" id="phoneError">Phone number must start with '+' and be 10-15 digits.</p>
                 </div>
 
@@ -61,7 +61,7 @@
                     <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password:</label>
                     <input type="password" id="password" name="password"
                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                           placeholder="********" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" required>
+                           placeholder="********" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" >
                     <p class="text-red-500 text-xs italic mt-1 hidden" id="passwordError">
                         Password must be at least 8 characters long, contain one uppercase, one lowercase, one number, and one special character.
                     </p>
@@ -71,10 +71,41 @@
                     <label for="confirmPassword" class="block text-gray-700 text-sm font-bold mb-2">Confirm Password:</label>
                     <input type="password" id="confirmPassword" name="confirmPassword"
                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                           placeholder="********" required>
+                           placeholder="********" >
                     <p class="text-red-500 text-xs italic mt-1 hidden" id="confirmPasswordError">Passwords do not match.</p>
                 </div>
+                <div>
+                    <label>
+      <input type="radio" name="category" value="technical" onclick="showDropdown('technical')"> Technical
+    </label>
+    <br>
+    <label>
+      <input type="radio" name="category" value="nontechnical" onclick="showDropdown('nontechnical')"> Non-Technical
+    </label>
+                </div>
+                <div id="technicalDropdown" class="hidden">
+      <label for="eventSelect" class="block text-gray-700 text-sm font-bold mb-2">Technical Field</label>
+      <br>
+      <select id="technicalSelect" name="technicalField"
+        class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+        <option value="">--Select--</option>
+        <option value="software">Software Engineering</option>
+        <option value="networking">Networking</option>
+        <option value="ai">Artificial Intelligence</option>
+      </select>
+    </div>
 
+    <div id="nontechnicalDropdown" class="hidden">
+      <label for="eventSelect" class="block text-gray-700 text-sm font-bold mb-2">Non-Technical Field</label>
+      <br>
+      <select id="nontechnicalSelect" name="nonTechnicalField"
+        class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+        <option value="">--Select--</option>
+        <option value="hr">Human Resources</option>
+        <option value="marketing">Marketing</option>
+        <option value="finance">Finance</option>
+      </select>
+    </div>
                 <div>
                     <label for="eventSelect" class="block text-gray-700 text-sm font-bold mb-2">Select Event (Optional):</label>
                     <select id="eventSelect" name="eventSelect"
@@ -115,7 +146,44 @@
             <p>&copy; 2025 Event Horizon. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+    function showDropdown(type) {
+      document.getElementById('technicalDropdown').classList.add('hidden');
+      document.getElementById('nontechnicalDropdown').classList.add('hidden');
 
+      if (type === 'technical') {
+        document.getElementById('technicalDropdown').classList.remove('hidden');
+      } else {
+        document.getElementById('nontechnicalDropdown').classList.remove('hidden');
+      }
+    }
+
+    function validateForm() {
+      const selectedCategory = document.querySelector('input[name="category"]:checked');
+      if (!selectedCategory) {
+        alert("Please select a category.");
+        return false;
+      }
+
+      if (selectedCategory.value === 'technical') {
+        const technicalValue = document.getElementById('technicalSelect').value;
+        if (!technicalValue) {
+          alert("Please select a Technical Field.");
+          return false;
+        }
+      }
+
+      if (selectedCategory.value === 'nontechnical') {
+        const nontechnicalValue = document.getElementById('nontechnicalSelect').value;
+        if (!nontechnicalValue) {
+          alert("Please select a Non-Technical Field.");
+          return false;
+        }
+      }
+
+      return true; // allow form submission
+    }
+  </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/form-validation.js"></script> </body>
