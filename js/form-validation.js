@@ -195,6 +195,122 @@ $(document).ready(function() {
             console.log('Sponsor Form has validation errors.');
         }
     });
+    $(document).ready(function () {
+
+    // --- Utility Functions ---
+    function validateField($field, $errorElement, errorMessage) {
+        if ($field.val().trim() === '') {
+            $errorElement.text(errorMessage).show();
+            $field.addClass('input-error');
+            return false;
+        } else {
+            $errorElement.hide();
+            $field.removeClass('input-error');
+            return true;
+        }
+    }
+
+    function validateEmail($field, $errorElement) {
+        const value = $field.val().trim();
+        const emailRegex = /^\S+@\S+\.\S+$/;
+        if (value === '') {
+            $errorElement.text('Email is required.').show();
+            $field.addClass('input-error');
+            return false;
+        } else if (!emailRegex.test(value)) {
+            $errorElement.text('Please enter a valid email address.').show();
+            $field.addClass('input-error');
+            return false;
+        } else {
+            $errorElement.hide();
+            $field.removeClass('input-error');
+            return true;
+        }
+    }
+
+    function validatePassword($field, $errorElement, minLength = 6) {
+        const value = $field.val();
+        if (value.length < minLength) {
+            $errorElement.text(`Password must be at least ${minLength} characters.`).show();
+            $field.addClass('input-error');
+            return false;
+        } else {
+            $errorElement.hide();
+            $field.removeClass('input-error');
+            return true;
+        }
+    }
+
+    // --- Admin Sign Up Validation ---
+    $('#adminSignUpForm').on('submit', function (e) {
+        e.preventDefault();
+
+        let isValid = true;
+        const $email = $('#adminSignUpEmail');
+        const $password = $('#adminSignUpPassword');
+
+        if (!validateEmail($email, $('#adminSignUpEmailError'))) isValid = false;
+        if (!validatePassword($password, $('#adminSignUpPasswordError'))) isValid = false;
+
+        if (isValid) {
+            // Handle form submission (AJAX or redirect)
+            console.log('Admin Sign Up Form is valid');
+            // Example: window.location.href = 'fetch.html';
+        }
+    });
+
+    // --- Admin Sign In Validation ---
+    $('#adminSignInForm').on('submit', function (e) {
+        e.preventDefault();
+
+        let isValid = true;
+        const $email = $('#adminSignInEmail');
+        const $password = $('#adminSignInPassword');
+
+        if (!validateEmail($email, $('#adminSignInEmailError'))) isValid = false;
+        if (!validateField($password, $('#adminSignInPasswordError'), 'Password is required.')) isValid = false;
+
+        if (isValid) {
+            console.log('Admin Sign In Form is valid');
+        }
+    });
+
+    // --- Student Sign Up Validation ---
+    $('#signUpForm').on('submit', function (e) {
+        e.preventDefault();
+
+        let isValid = true;
+        const $name = $('#signupName');
+        const $email = $('#signupEmail');
+        const $password = $('#signupPassword');
+
+        if (!validateField($name, $('#signupNameError'), 'Name is required.')) isValid = false;
+        if (!validateEmail($email, $('#signupEmailError'))) isValid = false;
+        if (!validatePassword($password, $('#signupPasswordError'))) isValid = false;
+
+        if (isValid) {
+            console.log('Student Sign Up Form is valid');
+        }
+    });
+
+    // --- Student Sign In Validation ---
+    $('#signInForm').on('submit', function (e) {
+        e.preventDefault();
+
+        let isValid = true;
+        const $email = $('#signInEmail');
+        const $password = $('#signInPassword');
+
+        if (!validateEmail($email, $('#signInEmailError'))) isValid = false;
+        if (!validateField($password, $('#signInPasswordError'), 'Password is required.')) isValid = false;
+
+        if (isValid) {
+            console.log('Student Sign In Form is valid');
+        }
+    });
+
+});
+
     
 
 });  // end of document ready
