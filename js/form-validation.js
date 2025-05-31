@@ -67,7 +67,15 @@ $(document).ready(function() {
         }
 
         
-        const $Instution = $('#Instution');
+        const $technicalSelect = $('#technicalSelect');
+        if (!validateFieldWithPattern($technicalSelect, $('#technicalError'), '*Select a technical event')) {
+            isValid = false;
+        }
+        const $nontechnicalSelect = $('#nontechnicalSelect');
+        if (!validateFieldWithPattern($nontechnicalSelect, $('#nontechnicalError'), '*Select a non-technical event')) {
+            isValid = false;
+        }
+         const $Instution = $('#Instution');
         if (!validateFieldWithPattern($Instution, $('#instituteError'), 'Institute name is required.')) {
             isValid = false;
         }
