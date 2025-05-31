@@ -32,7 +32,7 @@
         <div class="bg-white p-8 rounded-lg shadow-md max-w-2xl mx-auto">
             <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Register for an Event</h2>
 
-            <form id="registrationForm" class="space-y-6">
+            <form id="registrationForm" class="space-y-6" autocomplete="off">
                 <div>
                     <label for="fullName" class="block text-gray-700 text-sm font-bold mb-2">Full Name:</label>
                     <input type="text" id="fullName" name="fullName"
@@ -48,12 +48,14 @@
                            placeholder="john.doe@example.com" inputmode="email" >
                     <p class="text-red-500 text-xs italic mt-1 hidden" id="emailError"></p>
                 </div>
+                
+        
 
                 <div>
                     <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Phone Number:</label>
-                    <input type="number" id="phone" name="phone"
+                    <input type="text" id="phone" name="phone"
                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                           placeholder="+1234567890" pattern="^\+\d{10,15}$" >
+                           placeholder="+1234567890" >
                     <p class="text-red-500 text-xs italic mt-1 hidden" id="phoneError">Phone number must start with '+' and be 10-15 digits.</p>
                 </div>
                 <div>
@@ -85,15 +87,15 @@
       <select id="technicalSelect" name="technicalSelect"
         class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
         <option value="">--Select--</option>
-        <option value="software">Global Tech Summit 2025</option>
-        <option value="networking">Future of AI Webinar Series</option>
-        <option value="ai">Speed Programming</option>
-        <option value="ai">Blind Coding</option>
-        <option value="ai">Site Storm</option>
-        <option value="ai">Bug Hunt</option>
-        <option value="ai">Brain Battle</option>
-        <option value="ai">Train the Brain</option>
-        <option value="ai">App Storm</option>
+        <option value="Global Tech Summit 2025">Global Tech Summit 2025</option>
+        <option value="Future of AI Webinar Series">Future of AI Webinar Series</option>
+        <option value="Speed Programming">Speed Programming</option>
+        <option value="Blind Coding">Blind Coding</option>
+        <option value="Site Storm">Site Storm</option>
+        <option value="Bug Hunt">Bug Hunt</option>
+        <option value="Brain Battle">Brain Battle</option>
+        <option value="Train the Brain">Train the Brain</option>
+        <option value="App Storm">App Storm</option>
       </select>
       <p class="text-red-500 text-xs italic mt-1 hidden" id="technicalError">Please select to continue</p>
     </div>
@@ -104,22 +106,22 @@
       <select id="nontechnicalSelect" name="nontechnicalSelect"
         class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
         <option value="">--Select--</option>
-        <option value="hr">Table Tennis Championship</option>
-        <option value="marketing">Tug of War</option>
-        <option value="finance">Cricket Tournament</option>
-        <option value="finance">Futsal Frenzy</option>
-        <option value="finance">Chess Master Challenge</option>
-        <option value="finance">Badminton Bash</option>
-        <option value="finance">E-Gaming Tournament (FIFA, Tekken)</option>
-        <option value="finance">Arm Wrestling Championship</option>
-        <option value="finance">Ludo King Tournament</option>
-        <option value="finance">Reel Competition</option>
+        <option value="Table Tennis Championship">Table Tennis Championship</option>
+        <option value="Tug of War">Tug of War</option>
+        <option value="Cricket Tournament">Cricket Tournament</option>
+        <option value="Futsal Frenzy">Futsal Frenzy</option>
+        <option value="Chess Master Challenge">Chess Master Challenge</option>
+        <option value="Badminton Bash">Badminton Bash</option>
+        <option value="E-Gaming Tournament (FIFA, Tekken)">E-Gaming Tournament (FIFA, Tekken)</option>
+        <option value="Arm Wrestling Championship">Arm Wrestling Championship</option>
+        <option value="Ludo King Tournament">Ludo King Tournament</option>
+        <option value="Reel Competition">Reel Competition</option>
       </select>
       <p class="text-red-500 text-xs italic mt-1 hidden" id="nontechnicalError">Please select to continue</p>
     </div>
                 <div>
                     <label for="eventSelect" class="block text-gray-700 text-sm font-bold mb-2">Select Event (Optional):</label>
-                    <select id="eventSelect" name="eventSelect"
+                    <select id="optionalEvent" name="optionalEvent"
                             class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
                         <option value="">-- Select an Event --</option>
                         <option value="tech-summit">Global Tech Summit 2025</option>
@@ -170,31 +172,6 @@
       }
     }
 
-    function validateForm() {
-      const selectedCategory = document.querySelector('input[name="category"]:checked');
-      if (!selectedCategory) {
-        alert("Please select a category.");
-        return false;
-      }
-
-      if (selectedCategory.value === 'technical') {
-        const technicalValue = document.getElementById('technicalSelect').value;
-        if (!technicalValue) {
-          alert("Please select a Technical Field.");
-          return false;
-        }
-      }
-
-      if (selectedCategory.value === 'nontechnical') {
-        const nontechnicalValue = document.getElementById('nontechnicalSelect').value;
-        if (!nontechnicalValue) {
-          alert("Please select a Non-Technical Field.");
-          return false;
-        }
-      }
-
-      return true; // allow form submission
-    }
   </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/script.js"></script>

@@ -1,6 +1,6 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
-    // Function to validate a generic form field
+    // Utility: Validate required field
     function validateField($field, $errorElement, errorMessage) {
         if ($field.val().trim() === '') {
             $errorElement.text(errorMessage).removeClass('hidden');
@@ -13,7 +13,7 @@ $(document).ready(function() {
         }
     }
 
-    // Function to validate a field against a pattern
+    // Utility: Validate field with pattern
     function validateFieldWithPattern($field, $errorElement, defaultMessage) {
         const pattern = new RegExp($field.attr('pattern'));
         if ($field.val().trim() === '') {
@@ -21,7 +21,6 @@ $(document).ready(function() {
             $field.addClass('border-red-500');
             return false;
         } else if (!pattern.test($field.val())) {
-            // Error message for pattern is typically in the HTML, so just reveal it
             $errorElement.removeClass('hidden');
             $field.addClass('border-red-500');
             return false;
@@ -33,90 +32,137 @@ $(document).ready(function() {
     }
 
     // --- Registration Form Validation ---
-    $('#registrationForm').on('submit', function(e) {
-        e.preventDefault(); // Prevent default form submission
+        $('#registrationForm').on('submit', function (e) {
+        e.preventDefault();
 
         let isValid = true;
 
-        // Clear previous errors for this form
+        // Clear previous errors
         $(this).find('.text-red-500').addClass('hidden');
         $(this).find('input, select').removeClass('border-red-500');
 
-        // Full Name Validation
+        // Full Name
         const $fullName = $('#fullName');
-        if (!validateField($fullName, $('#fullNameError'), 'Full Name is required.')) {
-            isValid = false;
-        }
+        if (!validateField($fullName, $('#fullNameError'), 'Full Name is required.')) isValid = false;
 
-        // Email Validation
+        // Email
         const $email = $('#email');
-        if ($email.val().trim() === '') {
+        const emailVal = $email.val().trim();
+        if (emailVal === '') {
             $('#emailError').text('Email is required.').removeClass('hidden');
             $email.addClass('border-red-500');
             isValid = false;
-        } else if (!/^\S+@\S+\.\S+$/.test($email.val())) { // Basic email regex
+        } else if (!/^\S+@\S+\.\S+$/.test(emailVal)) {
             $('#emailError').text('Please enter a valid email address.').removeClass('hidden');
             $email.addClass('border-red-500');
             isValid = false;
         }
 
-        // Phone Number Validation (using pattern attribute)
+        // Phone
         const $phone = $('#phone');
-        if (!validateFieldWithPattern($phone, $('#phoneError'), 'Phone Number is required.')) {
-            isValid = false;
+        if (!validateFieldWithPattern($phone, $('#phoneError'), 'Phone Number is required.')) isValid = false;
+
+        // Institution
+        const $institution = $('#Instution');
+        if (!validateFieldWithPattern($institution, $('#instituteError'), 'Institute name is required.')) isValid = false;
+
+        // Student ID
+        const $student_id = $('#student_id');
+        if (!validateFieldWithPattern($student_id, $('#studentIdError'), 'Student ID is required.')) isValid = false;
+
+        // --- FIXED VALIDATION: Only one of technical or non-technical must be selected ---
+        let technicalVal = '';
+        let nontechnicalVal = '';
+
+        const $technicalDropdown = $('#technicalSelect');
+        const $nontechnicalDropdown = $('#nontechnicalSelect');
+
+        if (!$technicalDropdown.prop('disabled')) {
+            technicalVal = $technicalDropdown.val().trim();
         }
 
-        
-        const $technicalSelect = $('#technicalSelect');
-        if (!validateFieldWithPattern($technicalSelect, $('#technicalError'), '*Select a technical event')) {
-            isValid = false;
-        }
-        const $nontechnicalSelect = $('#nontechnicalSelect');
-        if (!validateFieldWithPattern($nontechnicalSelect, $('#nontechnicalError'), '*Select a non-technical event')) {
-            isValid = false;
-        }
-         const $Instution = $('#Instution');
-        if (!validateFieldWithPattern($Instution, $('#instituteError'), 'Institute name is required.')) {
-            isValid = false;
-        }
-         const $student_id = $('#student_id');
-        if (!validateFieldWithPattern($student_id, $('#studentIdError'), 'Student ID is required.')) {
-            isValid = false;
+        if (!$nontechnicalDropdown.prop('disabled')) {
+            nontechnicalVal = $nontechnicalDropdown.val().trim();
         }
 
-        if (isValid) {
-            // Form is valid
-            $('#formSuccess').removeClass('hidden');
-            $('#formError').addClass('hidden');
-            console.log('Registration Form submitted successfully!', $(this).serializeArray());
-            // In a real application, you'd send this data to your Node.js backend
-            // this.reset(); // Uncomment to reset form after successful submission
+        // Validation logic
+        if ((technicalVal && nontechnicalVal) || (!technicalVal && !nontechnicalVal)) {
+            $('#technicalError').text('*Select only one: Technical OR Non-Technical event').removeClass('hidden');
+            $('#nontechnicalError').text('*Select only one: Technical OR Non-Technical event').removeClass('hidden');
+            $('#technicalSelect, #nontechnicalSelect').addClass('border-red-500');
+            isValid = false;
         } else {
-            // Form is invalid
+            $('#technicalError').addClass('hidden');
+            $('#nontechnicalError').addClass('hidden');
+            $('#technicalSelect, #nontechnicalSelect').removeClass('border-red-500');
+        }
+
+        // --- Submit if valid ---
+        if (isValid) {
+            const selectedCategory = $('input[name="category"]:checked').val();
+            const selectedEvent = selectedCategory === 'technical'
+                ? technicalVal
+                : nontechnicalVal;
+
+            const registrationData = {
+                fullName: $fullName.val(),
+                email: $email.val(),
+                phone: $phone.val(),
+                institution: $institution.val(),
+                studentId: $student_id.val(),
+                category: selectedCategory,
+                event: selectedEvent,
+                optionalEvent: $('#optionalEvent').val() || null
+            };
+
+            $.ajax({
+                url: 'http://localhost:3000/submit-registration',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(registrationData),
+                success: function () {
+                    $('#formSuccess').removeClass('hidden');
+                    $('#formError').addClass('hidden');
+                    $('#registrationForm')[0].reset();
+                },
+                error: function () {
+                    $('#formError').removeClass('hidden');
+                    $('#formSuccess').addClass('hidden');
+                }
+            });
+        } else {
             $('#formError').removeClass('hidden');
             $('#formSuccess').addClass('hidden');
-            console.log('Registration Form has validation errors.');
+            console.log('❌ Registration Form has validation errors.');
         }
+
+        // Debug log
+        console.log('✅ Validating form...');
+        console.log('Full Name:', $fullName.val());
+        console.log('Email:', $email.val());
+        console.log('Phone:', $phone.val());
+        console.log('Institution:', $institution.val());
+        console.log('Student ID:', $student_id.val());
+        console.log('Tech:', technicalVal, 'Non-Tech:', nontechnicalVal);
     });
 
+
     // --- Sponsor Form Validation ---
-    $('#sponsorForm').on('submit', function(e) {
-        e.preventDefault(); // Prevent default form submission
+    $('#sponsorForm').on('submit', function (e) {
+        e.preventDefault();
 
         let isValid = true;
-
-        // Clear previous errors for this form
         $(this).find('.text-red-500').addClass('hidden');
         $(this).find('input, select, textarea').removeClass('border-red-500');
 
-        // Company Name Validation
         const $companyName = $('#companyName');
-        if (!validateField($companyName, $('#companyNameError'), 'Company Name is required.')) {
-            isValid = false;
-        }
-
-        // Contact Person Validation
         const $contactPerson = $('#contactPerson');
+        const $contactEmail = $('#contactEmail');
+        const $contactPhone = $('#contactPhone');
+        const $sponsorshipCategory = $('input[name="sponsorshipCategory"]:checked');
+
+        if (!validateField($companyName, $('#companyNameError'), 'Company Name is required.')) isValid = false;
+
         const contactPersonVal = $contactPerson.val().trim();
         if (contactPersonVal === '') {
             $('#contactPersonError').text('Contact Person Name is required.').removeClass('hidden');
@@ -128,42 +174,33 @@ $(document).ready(function() {
             isValid = false;
         }
 
-        // Contact Email Validation
-        const $contactEmail = $('#contactEmail');
-        const emailVal = $contactEmail.val().trim();
-        if (emailVal === '') {
+        const contactEmailVal = $contactEmail.val().trim();
+        if (contactEmailVal === '') {
             $('#contactEmailError').text('Contact Email is required.').removeClass('hidden');
             $contactEmail.addClass('border-red-500');
             isValid = false;
-        } else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(emailVal)) {
+        } else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(contactEmailVal)) {
             $('#contactEmailError').text('Please enter a valid email address.').removeClass('hidden');
             $contactEmail.addClass('border-red-500');
             isValid = false;
         }
 
-        // Contact Phone Validation
-        const $contactPhone = $('#contactPhone');
-        const phoneVal = $contactPhone.val().trim();
-        if (phoneVal === '') {
+        const contactPhoneVal = $contactPhone.val().trim();
+        if (contactPhoneVal === '') {
             $('#contactPhoneError').text('Contact Phone Number is required.').removeClass('hidden');
             $contactPhone.addClass('border-red-500');
             isValid = false;
-        } else if (!/^\+\d{10,15}$/.test(phoneVal)) {
+        } else if (!/^\+\d{10,15}$/.test(contactPhoneVal)) {
             $('#contactPhoneError').text("Phone number must start with '+' and contain 10 to 15 digits.").removeClass('hidden');
             $contactPhone.addClass('border-red-500');
             isValid = false;
         }
 
-        // Sponsorship Category Validation
-        const $sponsorshipCategory = $('input[name="sponsorshipCategory"]:checked');
         if ($sponsorshipCategory.length === 0) {
             $('#sponsorshipCategoryError').text('Please select a sponsorship category.').removeClass('hidden');
             isValid = false;
-        } else {
-            $('#sponsorshipCategoryError').addClass('hidden');
         }
 
-        // Final check: Send data if valid
         if (isValid) {
             const sponsorData = {
                 companyName: $companyName.val(),
@@ -195,51 +232,7 @@ $(document).ready(function() {
             console.log('Sponsor Form has validation errors.');
         }
     });
-    $(document).ready(function () {
 
-    // --- Utility Functions ---
-    function validateField($field, $errorElement, errorMessage) {
-        if ($field.val().trim() === '') {
-            $errorElement.text(errorMessage).show();
-            $field.addClass('input-error');
-            return false;
-        } else {
-            $errorElement.hide();
-            $field.removeClass('input-error');
-            return true;
-        }
-    }
-
-    function validateEmail($field, $errorElement) {
-        const value = $field.val().trim();
-        const emailRegex = /^\S+@\S+\.\S+$/;
-        if (value === '') {
-            $errorElement.text('Email is required.').show();
-            $field.addClass('input-error');
-            return false;
-        } else if (!emailRegex.test(value)) {
-            $errorElement.text('Please enter a valid email address.').show();
-            $field.addClass('input-error');
-            return false;
-        } else {
-            $errorElement.hide();
-            $field.removeClass('input-error');
-            return true;
-        }
-    }
-
-    function validatePassword($field, $errorElement, minLength = 6) {
-        const value = $field.val();
-        if (value.length < minLength) {
-            $errorElement.text(`Password must be at least ${minLength} characters.`).show();
-            $field.addClass('input-error');
-            return false;
-        } else {
-            $errorElement.hide();
-            $field.removeClass('input-error');
-            return true;
-        }
-    }
 
     // --- Admin Sign Up Validation ---
     $('#adminSignUpForm').on('submit', function (e) {
@@ -253,9 +246,7 @@ $(document).ready(function() {
         if (!validatePassword($password, $('#adminSignUpPasswordError'))) isValid = false;
 
         if (isValid) {
-            // Handle form submission (AJAX or redirect)
             console.log('Admin Sign Up Form is valid');
-            // Example: window.location.href = 'fetch.html';
         }
     });
 
@@ -309,8 +300,36 @@ $(document).ready(function() {
         }
     });
 
+    // --- Extra Utility Functions ---
+    function validateEmail($field, $errorElement) {
+        const value = $field.val().trim();
+        const emailRegex = /^\S+@\S+\.\S+$/;
+        if (value === '') {
+            $errorElement.text('Email is required.').show();
+            $field.addClass('input-error');
+            return false;
+        } else if (!emailRegex.test(value)) {
+            $errorElement.text('Please enter a valid email address.').show();
+            $field.addClass('input-error');
+            return false;
+        } else {
+            $errorElement.hide();
+            $field.removeClass('input-error');
+            return true;
+        }
+    }
+
+    function validatePassword($field, $errorElement, minLength = 6) {
+        const value = $field.val();
+        if (value.length < minLength) {
+            $errorElement.text(`Password must be at least ${minLength} characters.`).show();
+            $field.addClass('input-error');
+            return false;
+        } else {
+            $errorElement.hide();
+            $field.removeClass('input-error');
+            return true;
+        }
+    }
+
 });
-
-    
-
-});  // end of document ready
