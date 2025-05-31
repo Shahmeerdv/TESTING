@@ -2,23 +2,175 @@
 
 /* Global Styles */
 body {
-    font-family: 'Inter', sans-serif; /* Applied globally for a modern look */
-    -webkit-font-smoothing: antialiased; /* Smoother font rendering */
-    -moz-osx-font-smoothing: grayscale; /* Smoother font rendering */
-    line-height: 1.6; /* Improved readability */
+    font-family: 'Inter', sans-serif; /* Modern look */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+    transition: opacity 0.2s ease;
+    opacity: 1;
 }
 
-/* Header & Navigation Styles (mostly Tailwind, but adding subtle custom touches) */
-header {
-    /* Tailwind handles most of this like shadow-lg, py-4, bg-white */
-    /* sticky top-0 z-40 ensures it stays at the top when scrolling */
+.fade-out {
+    opacity: 0;
 }
+
+/* Header & Navigation Styles */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Logo or Brand */
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #6366F1;
+    user-select: none;
+}
+
+/* Navigation */
+nav {
+    position: relative;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #333;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    color: #6366F1;
+    outline: none;
+}
+
+/* Hamburger toggle button - hidden on desktop */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 28px;
+    height: 22px;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    padding: 0;
+    box-sizing: content-box;
+    z-index: 110;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: #6366F1;
+    border-radius: 2px;
+    transition: all 0.3s linear;
+    position: relative;
+}
+
+/* Animate hamburger toggle when active */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 8px;
+    position: relative;
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: -8px;
+    position: relative;
+}
+
+/* Responsive Header Adjustments */
+
+/* Tablets */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 1.5rem;
+    }
+    nav ul {
+        gap: 1.5rem;
+    }
+    nav ul li a {
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    header {
+        padding: 0.75rem 1rem;
+    }
+
+    /* Hide nav by default on mobile */
+    nav ul {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: white;
+        width: 180px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        padding: 1rem 0;
+        margin: 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+        border-radius: 6px;
+        z-index: 105;
+    }
+
+    nav ul.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    nav ul li {
+        padding: 0.5rem 1.5rem;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+        display: block;
+    }
+
+    /* Show hamburger menu toggle */
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+/* Rest of your CSS unchanged */
 
 /* Hero Section Styles */
 .hero-gradient {
-    /* Defined in HTML <style> tag for now: background: linear-gradient(to right, #6366F1, #8B5CF6); */
-    position: relative; /* Essential for positioning particles-js div */
-    overflow: hidden; /* To contain particles and any other absolute elements */
+    position: relative;
+    overflow: hidden;
 }
 
 /* Particles.js Container Styles */
@@ -28,11 +180,11 @@ header {
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 0; /* Ensures particles are behind hero content */
-    background: transparent; /* Particles.js draws on canvas, so background should be transparent */
+    z-index: 0;
+    background: transparent;
 }
 
-/* Hero Section Text Animations (for elements within the hero content, above particles) */
+/* Hero Section Text Animations */
 @keyframes fadeInFromBottom {
     from {
         opacity: 0;
@@ -46,7 +198,7 @@ header {
 
 .animate-fade-in-up {
     animation: fadeInFromBottom 0.8s ease-out forwards;
-    opacity: 0; /* Start hidden */
+    opacity: 0;
 }
 
 .animate-fade-in-up.delay-200 {
@@ -57,110 +209,88 @@ header {
     animation-delay: 0.4s;
 }
 
-/* Image Slider specific styles */
+/* Image Slider */
 .slider-container {
     position: relative;
     width: 100%;
     overflow: hidden;
-    /* Height is set inline in HTML for simplicity (e.g., height: 550px;) */
 }
 
 .slider-wrapper {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    height: 100%; /* Ensures wrapper takes full height of container */
+    height: 100%;
 }
 
 .slider-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures images cover the area without distortion */
-    flex-shrink: 0; /* Prevents images from shrinking */
+    object-fit: cover;
+    flex-shrink: 0;
 }
 
-/* News Slider (Ticker) specific styles */
+/* News Slider */
 .news-slider {
     position: relative;
-    height: 250px; /* Adjust height as needed to show desired number of news items */
-    overflow: hidden; /* Crucial to hide content outside the slider area */
+    height: 250px;
+    overflow: hidden;
 }
 
 .news-list {
     position: absolute;
-    bottom: 0; /* Start from the bottom */
+    bottom: 0;
     left: 0;
     width: 100%;
     list-style: none;
     padding: 0;
     margin: 0;
-    animation: news-scroll 25s linear infinite; /* Adjust duration based on number of items */
+    animation: news-scroll 25s linear infinite;
 }
 
 .news-item {
     padding: 10px 0;
-    /* Tailwind handles border-b, last:border-b-0 */
 }
 
-/* Keyframe animation for the news scroll effect */
 @keyframes news-scroll {
     0% {
-        transform: translateY(0%); /* Start at the bottom */
+        transform: translateY(0%);
     }
     100% {
-        /*
-        This needs to be adjusted if number of items or their heights change significantly.
-        A more robust solution might calculate this with JavaScript, but for a fixed
-        number of items, -100% or more (e.g., -120% if items are slightly taller than
-        the container, to ensure smooth loop back) can work.
-        For 5 items of similar height in a 250px container, -100% works well.
-        */
-        transform: translateY(-100%); /* Moves content upwards */
+        transform: translateY(-100%);
     }
 }
 
-/* Pause news scroll animation on hover */
 .news-list:hover {
     animation-play-state: paused;
 }
 
-
 /* Lightbox Modal Styles */
 #lightbox-modal {
     transition: opacity 0.3s ease-in-out;
-    /* Tailwind handles: fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 */
 }
 
 #lightbox-modal.hidden {
     opacity: 0;
-    pointer-events: none; /* Allows clicks to pass through when hidden */
+    pointer-events: none;
 }
 
 #lightbox-modal > div {
-    max-width: 90%; /* Max width of the content box */
-    max-height: 90vh; /* Max height based on viewport height */
-    /* Tailwind handles: relative bg-white p-4 rounded-lg shadow-lg */
+    max-width: 90%;
+    max-height: 90vh;
 }
 
 #lightbox-img {
     max-width: 100%;
-    max-height: calc(90vh - 80px); /* Adjust height to leave space for close button and caption */
-    object-fit: contain; /* Ensures entire image is visible, even if it leaves empty space */
+    max-height: calc(90vh - 80px);
+    object-fit: contain;
 }
 
-/* Optional: Add a subtle animation for the image when opening/closing */
 #lightbox-modal.hidden #lightbox-img {
     transform: scale(0.9);
     transition: transform 0.3s ease-in-out;
 }
+
 #lightbox-modal:not(.hidden) #lightbox-img {
     transform: scale(1);
     transition: transform 0.3s ease-in-out;
-}
-body {
-    transition: opacity 0.2s ease;
-    opacity: 1;
-}
-
-.fade-out {
-    opacity: 0;
 }
