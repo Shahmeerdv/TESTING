@@ -11,12 +11,6 @@ CREATE TABLE IF NOT EXISTS sponsors (
     sponsorship_category VARCHAR(50) NOT NULL,
     message TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-<<<<<<< HEAD
-<<<<<<< HEAD
-);
-=======
-=======
->>>>>>> 16c9237c3733ab5623153134e6829d1b6405cfa0
 );
 
 CREATE TABLE IF NOT EXISTS registrations (
@@ -31,7 +25,3 @@ CREATE TABLE IF NOT EXISTS registrations (
     optional_event VARCHAR(100),  -- Optional event dropdown field
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-<<<<<<< HEAD
->>>>>>> bef1326b15e51f6523d49b4ae1ae712c42082245
-=======
->>>>>>> 16c9237c3733ab5623153134e6829d1b6405cfa0
