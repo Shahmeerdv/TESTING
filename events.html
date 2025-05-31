@@ -34,13 +34,13 @@
         .sticky-header {
             position: sticky;
             top: 0;
-            z-index: 10; /* Ensure it stays above other content */
-            background-color: white; /* Match the card background or main section background */
-            padding-top: 1.5rem; /* Add some padding to separate from the top */
+            z-index: 10;
+            background-color: white;
+            padding-top: 1.5rem;
             padding-bottom: 1rem;
-            margin-top: -1.5rem; /* Adjust to offset the padding and make it truly sticky at the top */
+            margin-top: -1.5rem;
             margin-bottom: 1rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: add a subtle shadow */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         /* Adjust padding for the main content to prevent content from being hidden under sticky header */
@@ -50,374 +50,375 @@
     </style>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="font-sans antialiased bg-gray-100">
 
-<header class="bg-white shadow-md py-4">
-        <div class="container mx-auto px-4 flex justify-between items-center">
+<body class="font-inter antialiased bg-gray-50 text-gray-800">
+
+    <header class="bg-white shadow-lg py-4 sticky top-0 z-40">
+        <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="images/logo.png" alt="Event Horizon Logo" class="h-12 w-12 mr-3">
-                <h1 class="text-3xl font-bold text-gray-800">Event Horizon</h1>
+                <img src="images/logo.png" alt="Event Horizon Logo" class="h-14 w-14 mr-3">
+                <h1 class="text-3xl font-extrabold text-indigo-700">Event Horizon</h1>
             </div>
             <nav>
-                <ul class="flex space-x-6">
-                    <li><a href="index.html" class="text-gray-600 hover:text-blue-600 font-semibold text-lg">Home</a></li>
-                    <li><a href="events.html" class="text-gray-600 hover:text-blue-600 font-semibold text-lg">Events</a></li>
-                    <li><a href="about.html" class="text-gray-600 hover:text-blue-600 font-semibold text-lg">About Us</a></li>
-                    <li><a href="registration.html" class="text-gray-600 hover:text-blue-600 font-semibold text-lg">Register</a></li>
-                    <li><a href="gallery.html" class="text-gray-600 hover:text-blue-600 font-semibold text-lg">Gallery</a></li>
-                    <li><a href="sponsors.html" class="text-gray-600 hover:text-blue-600 font-semibold text-lg">Sponsors</a></li>                </ul>
+                <ul class="flex space-x-8">
+                    <li><a href="index.html" class="text-indigo-600 hover:text-indigo-800 font-semibold text-lg transition duration-300">Home</a></li>
+                    <li><a href="events.html" class="text-gray-700 hover:text-indigo-600 font-semibold text-lg transition duration-300">Events</a></li>
+                    <li><a href="about.html" class="text-gray-700 hover:text-indigo-600 font-semibold text-lg transition duration-300">About Us</a></li>
+                    <li><a href="registration.html" class="text-gray-700 hover:text-indigo-600 font-semibold text-lg transition duration-300">Register</a></li>
+                    <li><a href="gallery.html" class="text-gray-700 hover:text-indigo-600 font-semibold text-lg transition duration-300">Gallery</a></li>
+                    <li><a href="sponsors.html" class="text-gray-700 hover:text-indigo-600 font-semibold text-lg transition duration-300">Sponsors</a></li>
+                </ul>
             </nav>
         </div>
     </header>
+<main class="container mx-auto px-4 my-8">
+    <h2 class="text-4xl font-extrabold text-gray-900 mb-6 text-center">Our Upcoming Events</h2>
 
-    <main class="container mx-auto px-4 my-8">
-        <h2 class="text-4xl font-extrabold text-gray-900 mb-6 text-center">Our Upcoming Events</h2>
+    <div class="mb-8">
+        <marquee class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 text-xl font-bold rounded-lg shadow-lg" behavior="scroll" direction="left">
+            🎉 Grab Your Passes Now! All events will take place over 3 thrilling days! Don't miss out! 🎉
+        </marquee>
+    </div>
 
-        <div class="mb-8">
-            <marquee class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 text-xl font-bold rounded-lg shadow-lg" behavior="scroll" direction="left">
-                🎉 Grab Your Passes Now! All events will take place over 3 thrilling days! Don't miss out! 🎉
-            </marquee>
-        </div>
-
-        <div class="flex flex-col lg:flex-row gap-10">
-            <div class="lg:w-1/2 bg-white p-6 rounded-xl shadow-2xl border-t-4 border-blue-600">
-                <h3 class="text-3xl font-bold text-blue-700 mb-6 pb-2 border-b-2 border-blue-300 sticky-header">⚙️ Technical Events</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="images/t1.jpg" alt="Tech Summit" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Global Tech Summit 2025</h4>
-                            <p class="text-gray-600 mb-4 text-sm">Join industry leaders and innovators for a deep dive into the future of technology.</p>
-                            <div class="text-xs text-gray-500 space-y-1">
-                                <span><strong class="text-gray-700">Date:</strong> October 26-28, 2025</span><br>
-                                <span><strong class="text-gray-700">Time:</strong> 9:00 AM - 5:00 PM (Daily)</span><br>
-                                <span><strong class="text-gray-700">Location:</strong> Convention Center, City A</span>
-                            </div>
-                        </div>
-                        <div class="event-overlay">
-                            <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+    <div class="flex flex-col lg:flex-row gap-10">
+        <div class="lg:w-1/2 bg-white p-6 rounded-xl shadow-2xl border-t-4 border-blue-600">
+            <h3 class="text-3xl font-bold text-blue-700 mb-6 pb-2 border-b-2 border-blue-300 sticky-header">⚙️ Technical Events</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="images/t1.jpg" alt="Tech Summit" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Global Tech Summit 2025</h4>
+                        <p class="text-gray-600 mb-4 text-sm">Join industry leaders and innovators for a deep dive into the future of technology.</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p class="text-gray-700"><strong>Date:</strong> June 1-3, 2025</p>
+                            <p class="text-gray-700"><strong>Time:</strong> 10:00 AM - 5:00 PM (Daily)</p>
+                            <p class="text-gray-700"><strong>Location:</strong> Main Hall</p>
                         </div>
                     </div>
-
-                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="images/t2.jpg" alt="Webinar" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Future of AI Webinar Series</h4>
-                            <p class="text-gray-600 mb-4 text-sm">An online series exploring the latest advancements and ethical considerations in Artificial Intelligence.</p>
-                            <div class="text-xs text-gray-500 space-y-1">
-                                <span><strong class="text-gray-700">Date:</strong> September 1-15, 2025</span><br>
-                                <span><strong class="text-gray-700">Time:</strong> 7:00 PM - 8:30 PM (Selected Days)</span><br>
-                                <span><strong class="text-gray-700">Location:</strong> Online</span>
-                            </div>
-                        </div>
-                        <div class="event-overlay">
-                            <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Join Webinar</a>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="images/t3.webp" alt="Speed Programming" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Speed Programming</h4>
-                            <p class="text-gray-600 mb-4 text-sm">Test your coding speed and accuracy in a competitive environment.</p>
-                            <div class="text-xs text-gray-500 space-y-1">
-                                <span><strong class="text-gray-700">Date:</strong> Day 1</span><br>
-                                <span><strong class="text-gray-700">Time:</strong> 10:00 AM - 1:00 PM</span><br>
-                                <span><strong class="text-gray-700">Location:</strong> Computer Labs</span>
-                            </div>
-                        </div>
-                        <div class="event-overlay">
-                            <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="images/t4.jpg" alt="Blind Coding" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Blind Coding</h4>
-                            <p class="text-gray-600 mb-4 text-sm">Can you code without seeing your screen? A true test of skill!</p>
-                            <div class="text-xs text-gray-500 space-y-1">
-                                <span><strong class="text-gray-700">Date:</strong> Day 2</span><br>
-                                <span><strong class="text-gray-700">Time:</strong> 11:00 AM - 2:00 PM</span><br>
-                                <span><strong class="text-gray-700">Location:</strong> Computer Labs</span>
-                            </div>
-                        </div>
-                        <div class="event-overlay">
-                            <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="images/t5.avif" alt="Site Storm" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Site Storm</h4>
-                            <p class="text-gray-600 mb-4 text-sm">Design and develop a website from scratch under pressure.</p>
-                            <div class="text-xs text-gray-500 space-y-1">
-                                <span><strong class="text-gray-700">Date:</strong> Day 3</span><br>
-                                <span><strong class="text-gray-700">Time:</strong> 9:30 AM - 4:00 PM</span><br>
-                                <span><strong class="text-gray-700">Location:</strong> Design Studios</span>
-                            </div>
-                        </div>
-                        <div class="event-overlay">
-                            <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="images/t6.webp" alt="Bug Hunt" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Bug Hunt</h4>
-                            <p class="text-gray-600 mb-4 text-sm">Find and fix bugs in challenging codebases against the clock.</p>
-                            <div class="text-xs text-gray-500 space-y-1">
-                                <span><strong class="text-gray-700">Date:</strong> Day 1</span><br>
-                                <span><strong class="text-gray-700">Time:</strong> 2:00 PM - 4:00 PM</span><br>
-                                <span><strong class="text-gray-700">Location:</strong> Computer Labs</span>
-                            </div>
-                        </div>
-                        <div class="event-overlay">
-                            <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="images/t7.webp" alt="Brain Battle" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Brain Battle</h4>
-                            <p class="text-gray-600 mb-4 text-sm">A coding and logic quiz to challenge your technical knowledge.</p>
-                            <div class="text-xs text-gray-500 space-y-1">
-                                <span><strong class="text-gray-700">Date:</strong> Day 2</span><br>
-                                <span><strong class="text-gray-700">Time:</strong> 1:00 PM - 3:00 PM</span><br>
-                                <span><strong class="text-gray-700">Location:</strong> Auditorium</span>
-                            </div>
-                        </div>
-                        <div class="event-overlay">
-                            <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="images/t8.jpg" alt="Train the Brain" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Train the Brain</h4>
-                            <p class="text-gray-600 mb-4 text-sm">Workshops and sessions to enhance your programming and problem-solving skills.</p>
-                            <div class="text-xs text-gray-500 space-y-1">
-                                <span><strong class="text-gray-700">Date:</strong> Day 3</span><br>
-                                <span><strong class="text-gray-700">Time:</strong> 10:00 AM - 12:00 PM</span><br>
-                                <span><strong class="text-gray-700">Location:</strong> Workshop Rooms</span>
-                            </div>
-                        </div>
-                        <div class="event-overlay">
-                            <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
-                        </div>
-                    </div>
-
-                     <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="images/t9.jpg" alt="App Storm" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-2">App Storm</h4>
-                            <p class="text-gray-600 mb-4 text-sm">Develop innovative mobile applications in a hackathon-style competition.</p>
-                            <div class="text-xs text-gray-500 space-y-1">
-                                <span><strong class="text-gray-700">Date:</strong> Day 2 & 3</span><br>
-                                <span><strong class="text-gray-700">Time:</strong> Day 2: 10:00 AM - 5:00 PM, Day 3: 9:00 AM - 12:00 PM</span><br>
-                                <span><strong class="text-gray-700">Location:</strong> Innovation Hub</span>
-                            </div>
-                        </div>
-                        <div class="event-overlay">
-                            <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
-                        </div>
+                    <div class="event-overlay">
+                        <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
                     </div>
                 </div>
-            </div>
 
-            <div class="lg:w-1/2 bg-white p-6 rounded-xl shadow-2xl border-t-4 border-purple-600">
-                <h3 class="text-3xl font-bold text-purple-700 mb-6 pb-2 border-b-2 border-purple-300 sticky-header">🎉 Non-Technical Events</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="images/t10.avif" alt="Table Tennis" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Table Tennis Championship</h4>
-                            <p class="text-gray-600 mb-4 text-sm">Serve up some excitement in our fast-paced table tennis tournament.</p>
-                            <div class="text-xs text-gray-500 space-y-1">
-                                <span><strong class="text-gray-700">Date:</strong> Day 1 & 2</span><br>
-                                <span><strong class="text-gray-700">Time:</strong> 9:00 AM - 4:00 PM</span><br>
-                                <span><strong class="text-gray-700">Location:</strong> Recreation Center</span>
-                            </div>
-                        </div>
-                        <div class="event-overlay">
-                            <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="images/t2.jpg" alt="Webinar" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Future of AI Webinar Series</h4>
+                        <p class="text-gray-600 mb-4 text-sm">An online series exploring the latest advancements and ethical considerations in Artificial Intelligence.</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p class="text-gray-700"><strong>Date:</strong> June 1, 2025</p>
+                            <p class="text-gray-700"><strong>Time:</strong> 10:00 AM - 1:00 PM</p>
+                            <p class="text-gray-700"><strong>Location:</strong> IT Lab</p>
                         </div>
                     </div>
+                    <div class="event-overlay">
+                        <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Join Webinar</a>
+                    </div>
+                </div>
 
-                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="images/t11.avif" alt="Tug of War" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Tug of War</h4>
-                            <p class="text-gray-600 mb-4 text-sm">Team up and test your collective strength in this classic competition.</p>
-                            <div class="text-xs text-gray-500 space-y-1">
-                                <span><strong class="text-gray-700">Date:</strong> Day 3</span><br>
-                                <span><strong class="text-gray-700">Time:</strong> 10:00 AM - 12:00 PM</span><br>
-                                <span><strong class="text-gray-700">Location:</strong> Outdoor Field</span>
-                            </div>
-                        </div>
-                        <div class="event-overlay">
-                            <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="images/t3.webp" alt="Speed Programming" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Speed Programming</h4>
+                        <p class="text-gray-600 mb-4 text-sm">Test your coding speed and accuracy in a competitive environment.</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p class="text-gray-700"><strong>Date:</strong> June 1, 2025</p>
+                            <p class="text-gray-700"><strong>Time:</strong> 10:00 AM - 1:00 PM</p>
+                            <p class="text-gray-700"><strong>Location:</strong> Lab 4</p>
                         </div>
                     </div>
+                    <div class="event-overlay">
+                        <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                    </div>
+                </div>
 
-                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="images/t12.avif" alt="Cricket" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Cricket Tournament</h4>
-                            <p class="text-gray-600 mb-4 text-sm">Hit a six at our inter-departmental cricket championship!</p>
-                            <div class="text-xs text-gray-500 space-y-1">
-                                <span><strong class="text-gray-700">Date:</strong> Day 1 & 2</span><br>
-                                <span><strong class="text-gray-700">Time:</strong> 9:00 AM - 4:00 PM</span><br>
-                                <span><strong class="text-gray-700">Location:</strong> University Ground</span>
-                            </div>
-                        </div>
-                        <div class="event-overlay">
-                            <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="images/t4.jpg" alt="Blind Coding" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Blind Coding</h4>
+                        <p class="text-gray-600 mb-4 text-sm">Can you code without seeing your screen? A true test of skill!</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p class="text-gray-700"><strong>Date:</strong> June 2, 2025</p>
+                            <p class="text-gray-700"><strong>Time:</strong> 11:00 AM - 2:00 PM</p>
+                            <p class="text-gray-700"><strong>Location:</strong> Set 1st Floor</p>
                         </div>
                     </div>
+                    <div class="event-overlay">
+                        <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                    </div>
+                </div>
 
-                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="images/t13.jpg" alt="Futsal" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Futsal Frenzy</h4>
-                            <p class="text-gray-600 mb-4 text-sm">Fast-paced indoor football for all the futsal enthusiasts.</p>
-                            <div class="text-xs text-gray-500 space-y-1">
-                                <span><strong class="text-gray-700">Date:</strong> Day 3</span><br>
-                                <span><strong class="text-gray-700">Time:</strong> 10:00 AM - 1:00 PM</span><br>
-                                <span><strong class="text-gray-700">Location:</strong> Indoor Arena</span>
-                            </div>
-                        </div>
-                        <div class="event-overlay">
-                            <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="images/t5.avif" alt="Site Storm" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Site Storm</h4>
+                        <p class="text-gray-600 mb-4 text-sm">Design and develop a website from scratch under pressure.</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p class="text-gray-700"><strong>Date:</strong> June 3, 2025</p>
+                            <p class="text-gray-700"><strong>Time:</strong> 10:00 AM - 4:00 PM</p>
+                            <p class="text-gray-700"><strong>Location:</strong> Main Hall</p>
                         </div>
                     </div>
+                    <div class="event-overlay">
+                        <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                    </div>
+                </div>
 
-                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="images/t14.jpg" alt="Chess" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Chess Master Challenge</h4>
-                            <p class="text-gray-600 mb-4 text-sm">Strategize and conquer in our intellectual chess tournament.</p>
-                            <div class="text-xs text-gray-500 space-y-1">
-                                <span><strong class="text-gray-700">Date:</strong> Day 1 & 2</span><br>
-                                <span><strong class="text-gray-700">Time:</strong> 11:00 AM - 3:00 PM</span><br>
-                                <span><strong class="text-gray-700">Location:</strong> Common Room</span>
-                            </div>
-                        </div>
-                        <div class="event-overlay">
-                            <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="images/t6.webp" alt="Bug Hunt" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Bug Hunt</h4>
+                        <p class="text-gray-600 mb-4 text-sm">Find and fix bugs in challenging codebases against the clock.</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p class="text-gray-700"><strong>Date:</strong> June 1, 2025</p>
+                            <p class="text-gray-700"><strong>Time:</strong> 2:00 PM - 4:00 PM</p>
+                            <p class="text-gray-700"><strong>Location:</strong> IT Lab</p>
                         </div>
                     </div>
+                    <div class="event-overlay">
+                        <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                    </div>
+                </div>
 
-                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="images/t19.webp" alt="Badminton" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Badminton Bash</h4>
-                            <p class="text-gray-600 mb-4 text-sm">Smash your way to victory in the badminton championship!</p>
-                            <div class="text-xs text-gray-500 space-y-1">
-                                <span><strong class="text-gray-700">Date:</strong> Day 2 & 3</span><br>
-                                <span><strong class="text-gray-700">Time:</strong> 9:00 AM - 1:00 PM</span><br>
-                                <span><strong class="text-gray-700">Location:</strong> Sports Complex</span>
-                            </div>
-                        </div>
-                        <div class="event-overlay">
-                            <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="images/t7.webp" alt="Brain Battle" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Brain Battle</h4>
+                        <p class="text-gray-600 mb-4 text-sm">A coding and logic quiz to challenge your technical knowledge.</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p class="text-gray-700"><strong>Date:</strong> June 2, 2025</p>
+                            <p class="text-gray-700"><strong>Time:</strong> 1:00 PM - 3:00 PM</p>
+                            <p class="text-gray-700"><strong>Location:</strong> Lab 4</p>
                         </div>
                     </div>
+                    <div class="event-overlay">
+                        <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                    </div>
+                </div>
 
-                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="images/t15.jpg" alt="E-Gaming" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-2">E-Gaming Tournament (FIFA, Tekken)</h4>
-                            <p class="text-gray-600 mb-4 text-sm">Compete in intense FIFA and Tekken battles to claim gaming glory.</p>
-                            <div class="text-xs text-gray-500 space-y-1">
-                                <span><strong class="text-gray-700">Date:</strong> Day 1 & 2</span><br>
-                                <span><strong class="text-gray-700">Time:</strong> 12:00 PM - 5:00 PM</span><br>
-                                <span><strong class="text-gray-700">Location:</strong> Gaming Zone</span>
-                            </div>
-                        </div>
-                        <div class="event-overlay">
-                            <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="images/t8.jpg" alt="Train the Brain" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Train the Brain</h4>
+                        <p class="text-gray-600 mb-4 text-sm">Workshops and sessions to enhance your programming and problem-solving skills.</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p class="text-gray-700"><strong>Date:</strong> June 3, 2025</p>
+                            <p class="text-gray-700"><strong>Time:</strong> 10:00 AM - 12:00 PM</p>
+                            <p class="text-gray-700"><strong>Location:</strong> Set 1st Floor</p>
                         </div>
                     </div>
+                    <div class="event-overlay">
+                        <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                    </div>
+                </div>
 
-                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="images/t16.jpg" alt="Arm Wrestling" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Arm Wrestling Championship</h4>
-                            <p class="text-gray-600 mb-4 text-sm">Showcase your strength and dominate the arm wrestling arena.</p>
-                            <div class="text-xs text-gray-500 space-y-1">
-                                <span><strong class="text-gray-700">Date:</strong> Day 3</span><br>
-                                <span><strong class="text-gray-700">Time:</strong> 2:00 PM - 4:00 PM</span><br>
-                                <span><strong class="text-gray-700">Location:</strong> Gymnasium</span>
-                            </div>
-                        </div>
-                        <div class="event-overlay">
-                            <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="images/t9.jpg" alt="App Storm" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">App Storm</h4>
+                        <p class="text-gray-600 mb-4 text-sm">Develop innovative mobile applications in a hackathon-style competition.</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p class="text-gray-700"><strong>Date:</strong> June 2 & 3, 2025</p>
+                            <p class="text-gray-700"><strong>Time:</strong> Day 2: 10:00 AM - 5:00 PM, Day 3: 10:00 AM - 12:00 PM</p>
+                            <p class="text-gray-700"><strong>Location:</strong> Main Hall</p>
                         </div>
                     </div>
-
-                    <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="images/t17.png" alt="Ludo" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Ludo King Tournament</h4>
-                            <p class="text-gray-600 mb-4 text-sm">Roll the dice and strategize your way to victory in our Ludo competition.</p>
-                            <div class="text-xs text-gray-500 space-y-1">
-                                <span><strong class="text-gray-700">Date:</strong> Day 1</span><br>
-                                <span><strong class="text-gray-700">Time:</strong> 1:00 PM - 4:00 PM</span><br>
-                                <span><strong class="text-gray-700">Location:</strong> Board Game Zone</span>
-                            </div>
-                        </div>
-                        <div class="event-overlay">
-                            <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
-                        </div>
-                    </div>
-
-                   <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                        <img src="images/t18.jpg" alt="Reel Competition" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Reel Competition</h4>
-                            <p class="text-gray-600 mb-4 text-sm">Create engaging short videos and showcase your creativity in our viral reel contest.</p>
-                            <div class="text-xs text-gray-500 space-y-1">
-                                <span><strong class="text-gray-700">Date:</strong> Day 2 & 3</span><br>
-                                <span><strong class="text-gray-700">Time:</strong> Day 2: 2:00 PM - 5:00 PM, Day 3: 11:00 AM - 1:00 PM</span><br>
-                                <span><strong class="text-gray-700">Location:</strong> Media Studio</span>
-                            </div>
-                        </div>
-                        <div class="event-overlay">
-                            <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
-                        </div>
+                    <div class="event-overlay">
+                        <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="mt-12 text-center bg-gradient-to-r from-blue-600 to-purple-700 text-white py-8 px-6 rounded-xl shadow-2xl">
-            <h3 class="text-3xl font-bold mb-4">Ready to Join the Adventure?</h3>
-            <p class="text-lg mb-6 max-w-2xl mx-auto">Don't miss out on these amazing events! Register now and be part of an unforgettable experience.</p>
-            <a href="registration.html" class="bg-white text-blue-600 px-8 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition duration-300 shadow-lg">Register for Events</a>
-        </div>
-    </main>
+        <div class="lg:w-1/2 bg-white p-6 rounded-xl shadow-2xl border-t-4 border-purple-600">
+            <h3 class="text-3xl font-bold text-purple-700 mb-6 pb-2 border-b-2 border-purple-300 sticky-header">🎉 Non-Technical Events</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="images/t10.avif" alt="Table Tennis" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Table Tennis Championship</h4>
+                        <p class="text-gray-600 mb-4 text-sm">Serve up some excitement in our fast-paced table tennis tournament.</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p class="text-gray-700"><strong>Date:</strong> Day 1 & 2</p>
+                            <p class="text-gray-700"><strong>Time:</strong> 9:00 AM - 4:00 PM</p>
+                            <p class="text-gray-700"><strong>Location:</strong> Recreation Center</p>
+                        </div>
+                    </div>
+                    <div class="event-overlay">
+                        <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                    </div>
+                </div>
 
-    <footer class="bg-gray-800 text-white py-8 mt-12">
-        <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center items-center mb-4">
-                <img src="images/logo.png" alt="Event Horizon Logo" class="h-10 w-10 mr-3">
-                <h3 class="text-2xl font-bold">Event Horizon</h3>
+                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="images/t11.avif" alt="Tug of War" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Tug of War</h4>
+                        <p class="text-gray-600 mb-4 text-sm">Team up and test your collective strength in this classic competition.</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p class="text-gray-700"><strong>Date:</strong> Day 3</p>
+                            <p class="text-gray-700"><strong>Time:</strong> 10:00 AM - 12:00 PM</p>
+                            <p class="text-gray-700"><strong>Location:</strong> Outdoor Field</p>
+                        </div>
+                    </div>
+                    <div class="event-overlay">
+                        <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="images/t12.avif" alt="Cricket" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Cricket Tournament</h4>
+                        <p class="text-gray-600 mb-4 text-sm">Hit a six at our inter-departmental cricket championship!</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p class="text-gray-700"><strong>Date:</strong> Day 1 & 2</p>
+                            <p class="text-gray-700"><strong>Time:</strong> 9:00 AM - 4:00 PM</p>
+                            <p class="text-gray-700"><strong>Location:</strong> University Ground</p>
+                        </div>
+                    </div>
+                    <div class="event-overlay">
+                        <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="images/t13.jpg" alt="Futsal" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Futsal Frenzy</h4>
+                        <p class="text-gray-600 mb-4 text-sm">Fast-paced indoor football for all the futsal enthusiasts.</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p class="text-gray-700"><strong>Date:</strong> Day 3</p>
+                            <p class="text-gray-700"><strong>Time:</strong> 10:00 AM - 1:00 PM</p>
+                            <p class="text-gray-700"><strong>Location:</strong> Indoor Arena</p>
+                        </div>
+                    </div>
+                    <div class="event-overlay">
+                        <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="images/t14.jpg" alt="Chess" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Chess Master Challenge</h4>
+                        <p class="text-gray-600 mb-4 text-sm">Strategize and conquer in our intellectual chess tournament.</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p class="text-gray-700"><strong>Date:</strong> Day 1 & 2</p>
+                            <p class="text-gray-700"><strong>Time:</strong> 11:00 AM - 3:00 PM</p>
+                            <p class="text-gray-700"><strong>Location:</strong> Common Room</p>
+                        </div>
+                    </div>
+                    <div class="event-overlay">
+                        <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="images/t19.webp" alt="Badminton" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Badminton Bash</h4>
+                        <p class="text-gray-600 mb-4 text-sm">Smash your way to victory in the badminton championship!</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p class="text-gray-700"><strong>Date:</strong> Day 2 & 3</p>
+                            <p class="text-gray-700"><strong>Time:</strong> 9:00 AM - 1:00 PM</p>
+                            <p class="text-gray-700"><strong>Location:</strong> Sports Complex</p>
+                        </div>
+                    </div>
+                    <div class="event-overlay">
+                        <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="images/t15.jpg" alt="E-Gaming" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">E-Gaming Tournament (FIFA, Tekken)</h4>
+                        <p class="text-gray-600 mb-4 text-sm">Compete in intense FIFA and Tekken battles to claim gaming glory.</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p class="text-gray-700"><strong>Date:</strong> Day 1 & 2</p>
+                            <p class="text-gray-700"><strong>Time:</strong> 12:00 PM - 5:00 PM</p>
+                            <p class="text-gray-700"><strong>Location:</strong> Gaming Zone</p>
+                        </div>
+                    </div>
+                    <div class="event-overlay">
+                        <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="images/t16.jpg" alt="Arm Wrestling" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Arm Wrestling Championship</h4>
+                        <p class="text-gray-600 mb-4 text-sm">Showcase your strength and dominate the arm wrestling arena.</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p class="text-gray-700"><strong>Date:</strong> Day 3</p>
+                            <p class="text-gray-700"><strong>Time:</strong> 2:00 PM - 4:00 PM</p>
+                            <p class="text-gray-700"><strong>Location:</strong> Gymnasium</p>
+                        </div>
+                    </div>
+                    <div class="event-overlay">
+                        <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="images/t17.png" alt="Ludo" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Ludo King Tournament</h4>
+                        <p class="text-gray-600 mb-4 text-sm">Roll the dice and strategize your way to victory in our Ludo competition.</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p class="text-gray-700"><strong>Date:</strong> Day 1</p>
+                            <p class="text-gray-700"><strong>Time:</strong> 1:00 PM - 4:00 PM</p>
+                            <p class="text-gray-700"><strong>Location:</strong> Board Game Zone</p>
+                        </div>
+                    </div>
+                    <div class="event-overlay">
+                        <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden relative event-card transform transition duration-300 hover:scale-105 hover:shadow-xl">
+                    <img src="images/t18.jpg" alt="Reel Competition" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Reel Competition</h4>
+                        <p class="text-gray-600 mb-4 text-sm">Create engaging short videos and showcase your creativity in our viral reel contest.</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p class="text-gray-700"><strong>Date:</strong> Day 2 & 3</p>
+                            <p class="text-gray-700"><strong>Time:</strong> Day 2: 2:00 PM - 5:00 PM, Day 3: 11:00 AM - 1:00 PM</p>
+                            <p class="text-gray-700"><strong>Location:</strong> Media Studio</p>
+                        </div>
+                    </div>
+                    <div class="event-overlay">
+                        <a href="registration.html" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-lg font-semibold">Register Now</a>
+                    </div>
+                </div>
             </div>
-            <p class="text-gray-400 mb-4">Creating unforgettable experiences through innovative events and competitions.</p>
-            <div class="flex justify-center space-x-6 mb-4">
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Facebook</a>
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Twitter</a>
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Instagram</a>
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">LinkedIn</a>
+        </div>
+    </div>
+
+    <div class="mt-12 text-center bg-gradient-to-r from-blue-600 to-purple-700 text-white py-8 px-6 rounded-xl shadow-2xl">
+        <h3 class="text-3xl font-bold mb-4">Ready to Join the Adventure?</h3>
+        <p class="text-lg mb-6 max-w-2xl mx-auto">Don't miss out on these amazing events! Register now and be part of an unforgettable experience.</p>
+        <a href="registration.html" class="page-transition  text-blue-600 px-8 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition duration-300 shadow-lg">Register for Events</a>
+    </div>
+</main>
+<footer class="bg-gray-900 text-gray-300 py-10 px-6 mt-16 rounded-t-3xl shadow-inner">
+        <div class="container mx-auto text-center">
+            <div class="flex flex-col md:flex-row justify-center items-center mb-6">
+                <img src="images/logo-white.png" alt="Event Horizon Logo" class="h-12 w-12 mb-4 md:mb-0 md:mr-4">
+                <p class="text-xl font-semibold">Event Horizon</p>
             </div>
-            <p class="text-gray-500">&copy; 2025 Event Horizon. All rights reserved.</p>
+            <p class="mb-4">© 2025 Event Horizon. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 text-lg">
+                <a href="#" class="hover:text-white transition duration-200">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition duration-200">Terms of Service</a>
+                <a href="#" class="hover:text-white transition duration-200">Sitemap</a>
+            </div>
         </div>
     </footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="js/script.js"></script>
 
 </body>
 </html>
