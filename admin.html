@@ -11,53 +11,48 @@
   <div class="container mx-auto p-6">
     <h1 class="text-3xl font-bold mb-6">Admin Dashboard</h1>
 
-    <!-- Add Form -->
-    <form id="addForm" class="bg-white p-4 shadow rounded mb-6">
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <input type="text" name="companyName" placeholder="Company Name" required class="border p-2 rounded" />
-        <input type="text" name="contactPerson" placeholder="Contact Person" required class="border p-2 rounded" />
-        <input type="email" name="contactEmail" placeholder="Email" required class="border p-2 rounded" />
-        <input type="text" name="contactPhone" placeholder="Phone" required class="border p-2 rounded" />
-        <input type="text" name="sponsorshipCategory" placeholder="Category" required class="border p-2 rounded" />
-        <textarea name="message" placeholder="Message" class="border p-2 rounded col-span-2"></textarea>
-      </div>
-      <button class="bg-blue-500 text-white px-4 py-2 rounded mt-4" type="submit">Add Sponsor</button>
-    </form>
+    <!-- Tabs -->
+    <div class="mb-4">
+      <button id="sponsorTab" class="tab-btn bg-blue-500 text-white px-4 py-2 rounded mr-2">Sponsors</button>
+      <button id="registrationTab" class="tab-btn bg-gray-300 text-black px-4 py-2 rounded">Registrations</button>
+    </div>
 
-    <!-- Table -->
-    <table class="min-w-full bg-white shadow rounded">
-      <thead class="bg-gray-200">
-        <tr>
-          <th class="py-2 px-4">Company</th>
-          <th class="py-2 px-4">Contact</th>
-          <th class="py-2 px-4">Email</th>
-          <th class="py-2 px-4">Phone</th>
-          <th class="py-2 px-4">Category</th>
-          <th class="py-2 px-4">Message</th>
-          <th class="py-2 px-4">Actions</th>
-        </tr>
-      </thead>
-      <tbody id="sponsorTableBody"></tbody>
-    </table>
-  </div>
+    <!-- Sponsor Table -->
+    <div id="sponsorSection" class="tab-section">
+      <table class="min-w-full bg-white shadow rounded">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="py-2 px-4">Company</th>
+            <th class="py-2 px-4">Contact</th>
+            <th class="py-2 px-4">Email</th>
+            <th class="py-2 px-4">Phone</th>
+            <th class="py-2 px-4">Category</th>
+            <th class="py-2 px-4">Message</th>
+            <th class="py-2 px-4">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="sponsorTableBody"></tbody>
+      </table>
+    </div>
 
-  <!-- Edit Modal -->
-  <div id="editModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
-    <div class="bg-white p-6 rounded shadow w-full max-w-lg">
-      <h2 class="text-xl font-bold mb-4">Edit Sponsor</h2>
-      <form id="editForm" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <input type="hidden" name="id" />
-        <input type="text" name="companyName" placeholder="Company Name" required class="border p-2 rounded" />
-        <input type="text" name="contactPerson" placeholder="Contact Person" required class="border p-2 rounded" />
-        <input type="email" name="contactEmail" placeholder="Email" required class="border p-2 rounded" />
-        <input type="text" name="contactPhone" placeholder="Phone" required class="border p-2 rounded" />
-        <input type="text" name="sponsorshipCategory" placeholder="Category" required class="border p-2 rounded" />
-        <textarea name="message" placeholder="Message" class="border p-2 rounded col-span-2"></textarea>
-        <div class="col-span-2 flex justify-end space-x-2 mt-4">
-          <button type="button" id="cancelEdit" class="bg-gray-500 text-white px-4 py-2 rounded">Cancel</button>
-          <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Update</button>
-        </div>
-      </form>
+    <!-- Registration Table -->
+    <div id="registrationSection" class="tab-section hidden">
+      <table class="min-w-full bg-white shadow rounded">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="py-2 px-4">Full Name</th>
+            <th class="py-2 px-4">Email</th>
+            <th class="py-2 px-4">Phone</th>
+            <th class="py-2 px-4">Institution</th>
+            <th class="py-2 px-4">Student ID</th>
+            <th class="py-2 px-4">Category</th>
+            <th class="py-2 px-4">Event</th>
+            <th class="py-2 px-4">Optional</th>
+            <th class="py-2 px-4">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="registrationTableBody"></tbody>
+      </table>
     </div>
   </div>
 </body>

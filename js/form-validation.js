@@ -81,9 +81,30 @@ $(document).ready(function () {
             technicalVal = $technicalDropdown.val().trim();
         }
 
+<<<<<<< HEAD
         if (!$nontechnicalDropdown.prop('disabled')) {
             nontechnicalVal = $nontechnicalDropdown.val().trim();
         }
+=======
+        // Password Validation (using pattern attribute)
+        const $password = $('#password');
+        if (!validateFieldWithPattern($password, $('#passwordError'), 'Password is required.')) {
+            isValid = false;
+        }
+
+        // Confirm Password Validation
+        const $confirmPassword = $('#confirmPassword');
+        if ($confirmPassword.val().trim() === '') {
+            $('#confirmPasswordError').text('Confirm Password is required.').removeClass('hidden');
+            $confirmPassword.addClass('border-red-500');
+            isValid = false;
+        } else if ($password.val() !== $confirmPassword.val()) {
+            $('#confirmPasswordError').removeClass('hidden'); // Message from HTML
+            $confirmPassword.addClass('border-red-500');
+            isValid = false;
+        }
+        
+>>>>>>> 1ec3fed53bdcaca80095abd4bfe7b8d860f3380a
 
         // Validation logic
         if ((technicalVal && nontechnicalVal) || (!technicalVal && !nontechnicalVal)) {
