@@ -125,6 +125,15 @@ app.post('/submit-registration', (req, res) => {
     });
 });
 
+<<<<<<< HEAD
+=======
+
+// --- Start the server ---
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+});
+
+>>>>>>> b73b224206e8a2a4e09784bd5403b1696ffe62df
 // Get all registrations
 app.get('/api/registrations', (req, res) => {
     db.query('SELECT * FROM registrations ORDER BY created_at DESC', (err, results) => {
@@ -186,4 +195,8 @@ app.delete('/api/registrations/:id', (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`🟢 Server running at http://localhost:${PORT}`);
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> b73b224206e8a2a4e09784bd5403b1696ffe62df
